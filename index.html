@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculus · Interactive Course</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="app">
+        <button id="sidebar-toggle" aria-label="Toggle sidebar">&#9776;</button>
+        <aside id="sidebar">
+            <div id="sidebar-header">
+                <h1>Calculus</h1>
+                <p class="author">Stewart · Thomas · 同济高数</p>
+                <div id="progress-container">
+                    <div id="progress-bar"><div id="progress-fill"></div></div>
+                    <span id="progress-text">0%</span>
+                </div>
+            </div>
+            <div id="search-container">
+                <input type="text" id="search-input" placeholder="Search topics...">
+            </div>
+            <nav id="chapter-nav"></nav>
+            <div id="sidebar-footer"><p class="copyright-notice" style="font-size:0.7rem;color:#888;margin-top:12px;text-align:center;">&copy; 2026 Hengzhe Zhao · AGPL-3.0 &amp; Commercial</p>
+                <button id="reset-progress">Reset Progress</button>
+            </div>
+        </aside>
+        <main id="main-content">
+            <div id="welcome-screen">
+                <div class="welcome-hero">
+                    <h1>Calculus</h1>
+                    <h2>微积分 — An Interactive Journey</h2>
+                    <p class="welcome-description">
+                        A comprehensive, visualization-driven course through calculus,
+                        from limits and derivatives to multivariable calculus and differential equations.
+                        Based on Stewart, Thomas, and 同济高等数学.
+                    </p>
+                </div>
+                <div class="roadmap">
+                    <h3>Course Roadmap</h3>
+                    <div class="roadmap-parts">
+                        <div class="roadmap-part">
+                            <h4>Part A: 极限与连续 Limits &amp; Continuity</h4>
+                            <ul>
+                                <li>Ch 0: Functions Review</li>
+                                <li>Ch 1: Limits</li>
+                                <li>Ch 2: Continuity</li>
+                            </ul>
+                        </div>
+                        <div class="roadmap-part">
+                            <h4>Part B: 微分学 Differential Calculus</h4>
+                            <ul>
+                                <li>Ch 3: The Derivative</li>
+                                <li>Ch 4: Differentiation Rules</li>
+                                <li>Ch 5: Applications I — Curve Sketching</li>
+                                <li>Ch 6: Applications II — Optimization</li>
+                                <li>Ch 7: Implicit &amp; Parametric</li>
+                            </ul>
+                        </div>
+                        <div class="roadmap-part">
+                            <h4>Part C: 积分学 Integral Calculus</h4>
+                            <ul>
+                                <li>Ch 8: Antiderivatives</li>
+                                <li>Ch 9: The Definite Integral</li>
+                                <li>Ch 10: Fundamental Theorem of Calculus</li>
+                                <li>Ch 11: Integration Techniques</li>
+                                <li>Ch 12: Applications of Integration</li>
+                            </ul>
+                        </div>
+                        <div class="roadmap-part">
+                            <h4>Part D: 无穷级数 Infinite Series</h4>
+                            <ul>
+                                <li>Ch 13: Sequences &amp; Series</li>
+                                <li>Ch 14: Power Series &amp; Taylor Series</li>
+                            </ul>
+                        </div>
+                        <div class="roadmap-part">
+                            <h4>Part E: 多元微积分 Multivariable Calculus</h4>
+                            <ul>
+                                <li>Ch 15: Multivariable Functions &amp; Partial Derivatives</li>
+                                <li>Ch 16: Extrema &amp; Lagrange Multipliers</li>
+                                <li>Ch 17: Multiple Integrals</li>
+                                <li>Ch 18: Vector Calculus</li>
+                            </ul>
+                        </div>
+                        <div class="roadmap-part">
+                            <h4>Part F: 微分方程入门 Intro to ODEs</h4>
+                            <ul>
+                                <li>Ch 19: First-Order ODEs</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <p class="welcome-start">Select a chapter from the sidebar to begin.</p>
+            </div>
+            <div id="chapter-content" style="display:none;">
+                <div id="chapter-header">
+                    <div id="chapter-number-badge"></div>
+                    <h1 id="chapter-title"></h1>
+                    <p id="chapter-subtitle"></p>
+                </div>
+                <div id="section-tabs"></div>
+                <article id="section-content"></article>
+                <div id="exercises-panel" style="display:none;">
+                    <h3>Exercises</h3>
+                    <div id="exercises-list"></div>
+                </div>
+                <div id="chapter-nav-buttons">
+                    <button id="prev-btn" disabled>&larr; Previous</button>
+                    <span id="section-indicator"></span>
+                    <button id="next-btn">Next &rarr;</button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+    <script src="viz-engine.js"></script>
+
+    <!-- Chapter manifest for lazy loading -->
+    <script>
+    window.CHAPTER_MANIFEST = [
+        {number:0,  id:'ch00', title:'Functions Review',                                  file:'ch00-functions-review'},
+        {number:1,  id:'ch01', title:'Limits',                                            file:'ch01-limits'},
+        {number:2,  id:'ch02', title:'Continuity',                                        file:'ch02-continuity'},
+        {number:3,  id:'ch03', title:'The Derivative',                                    file:'ch03-derivative'},
+        {number:4,  id:'ch04', title:'Differentiation Rules',                             file:'ch04-diff-rules'},
+        {number:5,  id:'ch05', title:'Applications I — Curve Sketching',                  file:'ch05-curve-sketching'},
+        {number:6,  id:'ch06', title:'Applications II — Optimization',                    file:'ch06-optimization'},
+        {number:7,  id:'ch07', title:'Implicit & Parametric',                             file:'ch07-implicit-parametric'},
+        {number:8,  id:'ch08', title:'Antiderivatives',                                   file:'ch08-antiderivatives'},
+        {number:9,  id:'ch09', title:'The Definite Integral',                             file:'ch09-definite-integral'},
+        {number:10, id:'ch10', title:'Fundamental Theorem of Calculus',                   file:'ch10-ftc'},
+        {number:11, id:'ch11', title:'Integration Techniques',                            file:'ch11-integration-techniques'},
+        {number:12, id:'ch12', title:'Applications of Integration',                       file:'ch12-integration-applications'},
+        {number:13, id:'ch13', title:'Sequences & Series',                                file:'ch13-sequences-series'},
+        {number:14, id:'ch14', title:'Power Series & Taylor Series',                      file:'ch14-power-series'},
+        {number:15, id:'ch15', title:'Multivariable Functions & Partial Derivatives',     file:'ch15-multivariable'},
+        {number:16, id:'ch16', title:'Extrema & Lagrange Multipliers',                    file:'ch16-extrema-lagrange'},
+        {number:17, id:'ch17', title:'Multiple Integrals',                                file:'ch17-multiple-integrals'},
+        {number:18, id:'ch18', title:'Vector Calculus',                                   file:'ch18-vector-calculus'},
+        {number:19, id:'ch19', title:'First-Order ODEs',                                  file:'ch19-first-order-odes'}
+    ];
+    </script>
+
+    <script src="app.js"></script>
+</body>
+</html>
