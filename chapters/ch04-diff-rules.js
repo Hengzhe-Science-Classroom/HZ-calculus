@@ -11,7 +11,7 @@ window.CHAPTERS.push({
       id: 'ch04-sec01',
       title: '1. Power Rule & Basic Rules',
       content: `
-<h2>幂法则与基本法则 — Power Rule & Basic Rules</h2>
+<h2>Power Rule & Basic Rules</h2>
 
 <p>
 In Chapter 3 we learned what a derivative <em>is</em> — the limit of a difference quotient.
@@ -21,7 +21,7 @@ we will ever meet, without returning to the definition.
 </p>
 
 <div class="definition">
-  <strong>The Power Rule (幂法则)</strong><br>
+  <strong>The Power Rule</strong><br>
   For any real number \\(n\\),
   \\[
     \\frac{d}{dx}\\bigl[x^n\\bigr] = n\\,x^{n-1}.
@@ -56,7 +56,7 @@ we will ever meet, without returning to the definition.
 <h3>Sum & Difference Rule</h3>
 
 <div class="definition">
-  <strong>Sum / Difference Rule (和差法则)</strong>
+  <strong>Sum / Difference Rule</strong>
   \\[
     \\frac{d}{dx}\\bigl[f(x) \\pm g(x)\\bigr] = f'(x) \\pm g'(x).
   \\]
@@ -186,7 +186,7 @@ we will ever meet, without returning to the definition.
       id: 'ch04-sec02',
       title: '2. Product & Quotient Rules',
       content: `
-<h2>乘法法则与除法法则 — Product & Quotient Rules</h2>
+<h2>Product & Quotient Rules</h2>
 
 <p>
 The sum rule says \\((f + g)' = f' + g'\\). You might hope that \\((fg)' = f'g'\\).
@@ -195,7 +195,7 @@ and far more interesting.
 </p>
 
 <div class="definition">
-  <strong>Product Rule (乘法法则)</strong><br>
+  <strong>Product Rule</strong><br>
   If \\(f\\) and \\(g\\) are differentiable, then
   \\[
     \\frac{d}{dx}\\bigl[f(x)\\,g(x)\\bigr] = f'(x)\\,g(x) + f(x)\\,g'(x).
@@ -228,7 +228,7 @@ and far more interesting.
 <h3>The Quotient Rule</h3>
 
 <div class="definition">
-  <strong>Quotient Rule (除法法则)</strong><br>
+  <strong>Quotient Rule</strong><br>
   If \\(f\\) and \\(g\\) are differentiable and \\(g(x) \\neq 0\\), then
   \\[
     \\frac{d}{dx}\\left[\\frac{f(x)}{g(x)}\\right] = \\frac{f'(x)\\,g(x) - f(x)\\,g'(x)}{\\bigl[g(x)\\bigr]^2}.
@@ -362,7 +362,7 @@ and far more interesting.
       id: 'ch04-sec03',
       title: '3. The Chain Rule',
       content: `
-<h2>链式法则 — The Chain Rule</h2>
+<h2>The Chain Rule</h2>
 
 <p>
 The <strong>chain rule</strong> is arguably the single most important differentiation rule.
@@ -371,7 +371,7 @@ a function inside another function.
 </p>
 
 <div class="definition">
-  <strong>Chain Rule (链式法则)</strong><br>
+  <strong>Chain Rule</strong><br>
   If \\(y = f(u)\\) and \\(u = g(x)\\), then
   \\[
     \\frac{dy}{dx} = \\frac{dy}{du} \\cdot \\frac{du}{dx} = f'\\bigl(g(x)\\bigr) \\cdot g'(x).
@@ -576,7 +576,7 @@ it is an excellent mnemonic and hints at deeper ideas about differentials.
       id: 'ch04-sec04',
       title: '4. Derivatives of Trigonometric Functions',
       content: `
-<h2>三角函数的导数 — Derivatives of Trigonometric Functions</h2>
+<h2>Derivatives of Trigonometric Functions</h2>
 
 <p>
 The six trigonometric functions have elegant derivative formulas.
@@ -761,7 +761,7 @@ Since \\(\\tan x = \\frac{\\sin x}{\\cos x}\\):
       id: 'ch04-sec05',
       title: '5. Derivatives of Exp & Log',
       content: `
-<h2>指数与对数函数的导数 — Derivatives of Exponential & Logarithmic Functions</h2>
+<h2>Derivatives of Exponential & Logarithmic Functions</h2>
 
 <p>
 The natural exponential function \\(e^x\\) is extraordinary:

@@ -10,7 +10,7 @@ window.CHAPTERS.push({
             id: 'ch12-sec01',
             title: 'Area Between Curves',
             content: `
-                <h2>Area Between Curves 曲线围成面积</h2>
+                <h2>Area Between Curves</h2>
 
                 <p>One of the most natural applications of the definite integral is computing the area of a region bounded by two or more curves. We already know that \\(\\int_a^b f(x)\\,dx\\) gives the signed area under \\(f(x)\\) from \\(a\\) to \\(b\\). Now we extend this idea to find the area <em>between</em> two curves.</p>
 
@@ -276,9 +276,9 @@ window.CHAPTERS.push({
             id: 'ch12-sec02',
             title: 'Volume by Disk/Washer Method',
             content: `
-                <h2>Volume by Disk/Washer Method 圆盘/垫圈法</h2>
+                <h2>Volume by Disk/Washer Method</h2>
 
-                <p>When a region in the plane is rotated about an axis, it sweeps out a <strong>solid of revolution</strong> (旋转体). The disk and washer methods compute the volume of such solids by slicing them into thin circular cross-sections perpendicular to the axis of rotation.</p>
+                <p>When a region in the plane is rotated about an axis, it sweeps out a <strong>solid of revolution</strong>. The disk and washer methods compute the volume of such solids by slicing them into thin circular cross-sections perpendicular to the axis of rotation.</p>
 
                 <div class="env-block definition">
                     <div class="env-title">Definition 12.3 (Disk Method)</div>
@@ -494,9 +494,9 @@ window.CHAPTERS.push({
             id: 'ch12-sec03',
             title: 'Volume by Shell Method',
             content: `
-                <h2>Volume by Shell Method 柱壳法</h2>
+                <h2>Volume by Shell Method</h2>
 
-                <p>The <strong>shell method</strong> (cylindrical shells method, 柱壳法) provides an alternative approach to computing volumes of revolution. Instead of slicing the solid into disks perpendicular to the axis, we decompose it into thin cylindrical shells parallel to the axis.</p>
+                <p>The <strong>shell method</strong> (cylindrical shells method) provides an alternative approach to computing volumes of revolution. Instead of slicing the solid into disks perpendicular to the axis, we decompose it into thin cylindrical shells parallel to the axis.</p>
 
                 <div class="env-block definition">
                     <div class="env-title">Definition 12.5 (Shell Method — Rotation About the \\(y\\)-axis)</div>
@@ -747,9 +747,9 @@ window.CHAPTERS.push({
             id: 'ch12-sec04',
             title: 'Arc Length',
             content: `
-                <h2>Arc Length 弧长</h2>
+                <h2>Arc Length</h2>
 
-                <p>We now turn to measuring the <strong>length of a curve</strong> (弧长). The key idea is to approximate the curve by a sequence of line segments and take the limit as the number of segments approaches infinity.</p>
+                <p>We now turn to measuring the <strong>length of a curve</strong>. The key idea is to approximate the curve by a sequence of line segments and take the limit as the number of segments approaches infinity.</p>
 
                 <div class="env-block definition">
                     <div class="env-title">Definition 12.6 (Arc Length of \\(y = f(x)\\))</div>
@@ -1008,7 +1008,7 @@ window.CHAPTERS.push({
             id: 'ch12-sec05',
             title: 'Surface Area & Work',
             content: `
-                <h2>Surface Area & Work 旋转曲面面积与功</h2>
+                <h2>Surface Area & Work</h2>
 
                 <p>In this final section we cover two more applications: the surface area of a solid of revolution, and the physical concept of work done by a variable force.</p>
 
@@ -1047,7 +1047,7 @@ window.CHAPTERS.push({
                 <div class="env-block definition">
                     <div class="env-title">Definition 12.9 (Work)</div>
                     <div class="env-body">
-                        <p>If a variable force \\(F(x)\\) acts on an object as it moves from \\(x = a\\) to \\(x = b\\) along a straight line, the <strong>work</strong> (功) done is</p>
+                        <p>If a variable force \\(F(x)\\) acts on an object as it moves from \\(x = a\\) to \\(x = b\\) along a straight line, the <strong>work</strong> done is</p>
                         \\[W = \\int_a^b F(x)\\,dx\\]
                     </div>
                 </div>

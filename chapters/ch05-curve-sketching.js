@@ -13,7 +13,7 @@ window.CHAPTERS.push({
       id: 'ch05-sec01',
       title: '1. Increasing/Decreasing & First Derivative Test',
       content: `
-<h2>单调性与一阶导数判别法 — Increasing/Decreasing & First Derivative Test</h2>
+<h2>Increasing/Decreasing & First Derivative Test</h2>
 
 <p>
 The derivative tells us about the <em>rate of change</em> of a function. When this rate is positive,
@@ -22,11 +22,11 @@ of curve analysis.
 </p>
 
 <div class="theorem">
-  <strong>Theorem (Increasing/Decreasing Test 单调性判别法)</strong><br>
+  <strong>Theorem (Increasing/Decreasing Test)</strong><br>
   Let \\(f\\) be continuous on \\([a, b]\\) and differentiable on \\((a, b)\\).
   <ul>
-    <li>If \\(f'(x) > 0\\) for all \\(x \\in (a, b)\\), then \\(f\\) is <strong>strictly increasing</strong> (严格递增) on \\([a, b]\\).</li>
-    <li>If \\(f'(x) < 0\\) for all \\(x \\in (a, b)\\), then \\(f\\) is <strong>strictly decreasing</strong> (严格递减) on \\([a, b]\\).</li>
+    <li>If \\(f'(x) > 0\\) for all \\(x \\in (a, b)\\), then \\(f\\) is <strong>strictly increasing</strong> on \\([a, b]\\).</li>
+    <li>If \\(f'(x) < 0\\) for all \\(x \\in (a, b)\\), then \\(f\\) is <strong>strictly decreasing</strong> on \\([a, b]\\).</li>
     <li>If \\(f'(x) = 0\\) for all \\(x \\in (a, b)\\), then \\(f\\) is <strong>constant</strong> on \\([a, b]\\).</li>
   </ul>
 </div>
@@ -44,10 +44,10 @@ of curve analysis.
   of \\(f'\\) is a complete road profile.
 </div>
 
-<h3>Critical Points 临界点</h3>
+<h3>Critical Points</h3>
 
 <div class="definition">
-  <strong>Definition.</strong> A number \\(c\\) in the domain of \\(f\\) is a <strong>critical point</strong> (临界点) if
+  <strong>Definition.</strong> A number \\(c\\) in the domain of \\(f\\) is a <strong>critical point</strong> if
   \\(f'(c) = 0\\) or \\(f'(c)\\) does not exist.
 </div>
 
@@ -61,13 +61,13 @@ To find intervals of increase and decrease:
   <li>Test the sign of \\(f'\\) in each interval.</li>
 </ol>
 
-<h3>The First Derivative Test 一阶导数判别法</h3>
+<h3>The First Derivative Test</h3>
 
 <div class="theorem">
   <strong>Theorem (First Derivative Test).</strong> Suppose \\(c\\) is a critical point of a continuous function \\(f\\).
   <ul>
-    <li>If \\(f'\\) changes from <strong>positive to negative</strong> at \\(c\\), then \\(f(c)\\) is a <strong>local maximum</strong> (极大值).</li>
-    <li>If \\(f'\\) changes from <strong>negative to positive</strong> at \\(c\\), then \\(f(c)\\) is a <strong>local minimum</strong> (极小值).</li>
+    <li>If \\(f'\\) changes from <strong>positive to negative</strong> at \\(c\\), then \\(f(c)\\) is a <strong>local maximum</strong>.</li>
+    <li>If \\(f'\\) changes from <strong>negative to positive</strong> at \\(c\\), then \\(f(c)\\) is a <strong>local minimum</strong>.</li>
     <li>If \\(f'\\) does <strong>not change sign</strong> at \\(c\\), then \\(f(c)\\) is <strong>neither</strong> a local max nor a local min.</li>
   </ul>
 </div>
@@ -275,7 +275,7 @@ To find intervals of increase and decrease:
       id: 'ch05-sec02',
       title: '2. Concavity & Second Derivative Test',
       content: `
-<h2>凹凸性与二阶导数判别法 — Concavity & Second Derivative Test</h2>
+<h2>Concavity & Second Derivative Test</h2>
 
 <p>
 The first derivative tells us whether a function is increasing or decreasing. The <strong>second derivative</strong>
@@ -283,11 +283,11 @@ tells us <em>how</em> it increases or decreases — whether the curve bends upwa
 </p>
 
 <div class="definition">
-  <strong>Definition (Concavity 凹凸性).</strong> Let \\(f\\) be differentiable on an interval \\(I\\).
+  <strong>Definition (Concavity).</strong> Let \\(f\\) be differentiable on an interval \\(I\\).
   <ul>
-    <li>\\(f\\) is <strong>concave up</strong> (凹的 / 上凸) on \\(I\\) if \\(f'\\) is increasing on \\(I\\).
+    <li>\\(f\\) is <strong>concave up</strong> on \\(I\\) if \\(f'\\) is increasing on \\(I\\).
       Equivalently, the graph of \\(f\\) lies above all of its tangent lines on \\(I\\).</li>
-    <li>\\(f\\) is <strong>concave down</strong> (凸的 / 下凸) on \\(I\\) if \\(f'\\) is decreasing on \\(I\\).
+    <li>\\(f\\) is <strong>concave down</strong> on \\(I\\) if \\(f'\\) is decreasing on \\(I\\).
       Equivalently, the graph of \\(f\\) lies below all of its tangent lines on \\(I\\).</li>
   </ul>
 </div>
@@ -306,7 +306,7 @@ tells us <em>how</em> it increases or decreases — whether the curve bends upwa
   \\(f'' > 0\\) means the slope itself is increasing (the curve bends upward).
 </div>
 
-<h3>The Second Derivative Test 二阶导数判别法</h3>
+<h3>The Second Derivative Test</h3>
 
 <div class="theorem">
   <strong>Theorem (Second Derivative Test).</strong> Suppose \\(f''\\) is continuous near \\(c\\) and \\(f'(c) = 0\\).
@@ -492,7 +492,7 @@ tells us <em>how</em> it increases or decreases — whether the curve bends upwa
       id: 'ch05-sec03',
       title: '3. Inflection Points',
       content: `
-<h2>拐点 — Inflection Points</h2>
+<h2>Inflection Points</h2>
 
 <p>
 An inflection point is where the concavity of a function changes. These are among the most
@@ -500,7 +500,7 @@ important features of a curve, marking the transition between "bending up" and "
 </p>
 
 <div class="definition">
-  <strong>Definition.</strong> A point \\(P = (c, f(c))\\) on the graph of \\(f\\) is an <strong>inflection point</strong> (拐点)
+  <strong>Definition.</strong> A point \\(P = (c, f(c))\\) on the graph of \\(f\\) is an <strong>inflection point</strong>
   if \\(f\\) is continuous at \\(c\\) and the concavity of \\(f\\) changes at \\(c\\)
   (from concave up to concave down, or vice versa).
 </div>
@@ -715,7 +715,7 @@ important features of a curve, marking the transition between "bending up" and "
       id: 'ch05-sec04',
       title: '4. Curve Sketching Strategy',
       content: `
-<h2>作图策略 — Curve Sketching Strategy</h2>
+<h2>Curve Sketching Strategy</h2>
 
 <p>
 We now have all the tools to sketch the graph of a function without a graphing calculator.
@@ -723,14 +723,14 @@ Here is the systematic procedure that combines everything from this chapter.
 </p>
 
 <div class="theorem">
-  <strong>Curve Sketching Checklist (作图步骤):</strong>
+  <strong>Curve Sketching Checklist:</strong>
   <ol>
-    <li><strong>Domain (定义域):</strong> Find where \\(f(x)\\) is defined.</li>
-    <li><strong>Intercepts (截距):</strong> Find \\(y\\)-intercept \\(f(0)\\) and \\(x\\)-intercepts (solve \\(f(x) = 0\\)).</li>
-    <li><strong>Symmetry (对称性):</strong> Is \\(f\\) even (\\(f(-x) = f(x)\\)), odd (\\(f(-x) = -f(x)\\)), or periodic?</li>
-    <li><strong>Asymptotes (渐近线):</strong> Find horizontal (\\(\\lim_{x \\to \\pm\\infty} f(x)\\)), vertical (where \\(f\\) blows up), and oblique asymptotes.</li>
-    <li><strong>First Derivative (一阶导数):</strong> Find \\(f'(x)\\), critical points, intervals of increase/decrease, local extrema.</li>
-    <li><strong>Second Derivative (二阶导数):</strong> Find \\(f''(x)\\), concavity intervals, inflection points.</li>
+    <li><strong>Domain:</strong> Find where \\(f(x)\\) is defined.</li>
+    <li><strong>Intercepts:</strong> Find \\(y\\)-intercept \\(f(0)\\) and \\(x\\)-intercepts (solve \\(f(x) = 0\\)).</li>
+    <li><strong>Symmetry:</strong> Is \\(f\\) even (\\(f(-x) = f(x)\\)), odd (\\(f(-x) = -f(x)\\)), or periodic?</li>
+    <li><strong>Asymptotes:</strong> Find horizontal (\\(\\lim_{x \\to \\pm\\infty} f(x)\\)), vertical (where \\(f\\) blows up), and oblique asymptotes.</li>
+    <li><strong>First Derivative:</strong> Find \\(f'(x)\\), critical points, intervals of increase/decrease, local extrema.</li>
+    <li><strong>Second Derivative:</strong> Find \\(f''(x)\\), concavity intervals, inflection points.</li>
     <li><strong>Plot key points and sketch:</strong> Put it all together on a coordinate plane.</li>
   </ol>
 </div>
@@ -1020,7 +1020,7 @@ Here is the systematic procedure that combines everything from this chapter.
       id: 'ch05-sec05',
       title: '5. Mean Value Theorem',
       content: `
-<h2>中值定理 — The Mean Value Theorem</h2>
+<h2>The Mean Value Theorem</h2>
 
 <p>
 The Mean Value Theorem (MVT) is one of the most important theorems in calculus. It says that
@@ -1028,7 +1028,7 @@ for a "nice enough" function, there is always a point where the instantaneous ra
 equals the average rate of change.
 </p>
 
-<h3>Rolle's Theorem (罗尔定理)</h3>
+<h3>Rolle's Theorem</h3>
 
 <div class="theorem">
   <strong>Theorem (Rolle's Theorem).</strong> If \\(f\\) is
@@ -1056,7 +1056,7 @@ equals the average rate of change.
   </ul>
 </div>
 
-<h3>The Mean Value Theorem (拉格朗日中值定理)</h3>
+<h3>The Mean Value Theorem</h3>
 
 <div class="theorem">
   <strong>Theorem (Mean Value Theorem).</strong> If \\(f\\) is

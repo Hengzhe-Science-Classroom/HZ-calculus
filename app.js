@@ -1,4 +1,4 @@
-// === 微积分 · Interactive - Core Application ===
+// === Calculus · Interactive - Core Application ===
 window.CHAPTERS = window.CHAPTERS || [];
 window.EXTRA_VIZ = window.EXTRA_VIZ || {};
 
