@@ -13,6 +13,16 @@ window.CHAPTERS.push({
             content: `
 <h2>Definition of Continuity</h2>
 
+<div class="env-block intuition">
+<div class="env-title">From Limits to Continuity</div>
+<div class="env-body">
+<p>In Chapter 1, we learned to compute \\(\\lim_{x \\to a} f(x)\\): the value a function <em>approaches</em> near a point. But we noticed something strange along the way. The limit can exist even when the function does something completely different at \\(a\\) itself. For instance, \\(\\frac{x^2 - 1}{x - 1}\\) approaches \\(2\\) as \\(x \\to 1\\), yet the function is undefined there.</p>
+<p>This raises a natural question: <strong>when does a function's limit actually match its value?</strong> When it does, we say the function is <em>continuous</em> at that point. Continuity captures the intuitive idea that you can draw the graph without lifting your pen. This chapter makes that idea precise and explores its powerful consequences.</p>
+</div>
+</div>
+
+<p>We will cover three things in this section: first, the precise definition of continuity at a single point; then, how to handle points at the boundary of a function's domain using one-sided continuity; and finally, a catalog of elementary functions that are automatically continuous.</p>
+
 <div class="env-block definition">
 <div class="env-title">Definition 2.1 — Continuity at a Point</div>
 <p>A function \\(f\\) is <strong>continuous at</strong> \\(x = a\\) if the following three conditions all hold:</p>
@@ -29,10 +39,14 @@ window.CHAPTERS.push({
 
 <div class="viz-placeholder" data-viz="viz-continuity-check"></div>
 
+<p>So far, our definition requires the limit from <em>both</em> sides to equal \\(f(a)\\). But what about points at the edge of a function's domain? Consider \\(f(x) = \\sqrt{x}\\): it only exists for \\(x \\geq 0\\), so at \\(x = 0\\) we can only approach from the right. We need a version of continuity that handles these boundary points:</p>
+
 <div class="env-block definition">
 <div class="env-title">Definition 2.2 — One-Sided Continuity</div>
 <p>We say \\(f\\) is <strong>continuous from the right</strong> at \\(a\\) if \\(\\displaystyle\\lim_{x \\to a^+} f(x) = f(a)\\), and <strong>continuous from the left</strong> at \\(a\\) if \\(\\displaystyle\\lim_{x \\to a^-} f(x) = f(a)\\).</p>
 </div>
+
+<p>With one-sided continuity in hand, we can now say precisely what it means for a function to be continuous on an entire interval, including at its endpoints:</p>
 
 <div class="env-block definition">
 <div class="env-title">Definition 2.3 — Continuity on an Interval</div>
@@ -251,13 +265,22 @@ window.CHAPTERS.push({
             content: `
 <h2>Types of Discontinuities</h2>
 
-<p>When a function fails to be continuous at a point, we classify the <strong>type of discontinuity</strong> based on the behavior of the one-sided limits.</p>
+<div class="env-block intuition">
+<div class="env-title">Why Classify Discontinuities?</div>
+<div class="env-body">
+<p>In Section 1, we defined continuity and saw that three conditions must hold. But when a function <em>fails</em> to be continuous, it is worth asking: <strong>how badly does it fail?</strong> Some discontinuities are minor (a single misplaced point that we can fix), while others are fundamental (the function tears apart or oscillates wildly). Classifying discontinuities tells us whether a break is "repairable" and what behavior to expect near the trouble spot.</p>
+</div>
+</div>
+
+<p>The classification is based on the behavior of the one-sided limits at the point where continuity breaks down. Each type of failure corresponds to a different geometric picture.</p>
 
 <div class="env-block definition">
 <div class="env-title">Definition 2.4 — Removable Discontinuity</div>
 <p>A function \\(f\\) has a <strong>removable discontinuity</strong> at \\(x = a\\) if \\(\\displaystyle\\lim_{x \\to a} f(x)\\) exists but either \\(f(a)\\) is undefined or \\(f(a) \\neq \\lim_{x \\to a} f(x)\\).</p>
 <p>Graphically, this appears as a <em>hole</em> in the curve. Redefining \\(f(a)\\) to equal the limit "fills the hole."</p>
 </div>
+
+<p>A removable discontinuity is the mildest type of break: the function "wants" to be continuous, and we just need to fill in or correct a single point. The next type is more serious, because no single redefinition can repair it:</p>
 
 <div class="env-block definition">
 <div class="env-title">Definition 2.5 — Jump Discontinuity</div>
@@ -266,10 +289,14 @@ window.CHAPTERS.push({
 <p>The <strong>jump size</strong> is \\(\\left|\\lim_{x \\to a^+} f(x) - \\lim_{x \\to a^-} f(x)\\right|\\).</p>
 </div>
 
+<p>In a jump discontinuity, the function "tears" into two pieces that refuse to meet. But at least both pieces approach finite values. The next two types are even more extreme, involving infinite behavior or wild oscillation:</p>
+
 <div class="env-block definition">
 <div class="env-title">Definition 2.6 — Infinite Discontinuity</div>
 <p>A function \\(f\\) has an <strong>infinite discontinuity</strong> at \\(x = a\\) if at least one of the one-sided limits is \\(+\\infty\\) or \\(-\\infty\\). Graphically, this corresponds to a vertical asymptote.</p>
 </div>
+
+<p>Finally, there are cases where the function oscillates so rapidly near a point that no limit exists at all, not even an infinite one:</p>
 
 <div class="env-block definition">
 <div class="env-title">Definition 2.7 — Oscillating Discontinuity</div>
@@ -484,7 +511,14 @@ window.CHAPTERS.push({
             content: `
 <h2>Properties of Continuous Functions</h2>
 
-<p>Continuous functions interact nicely with algebraic operations. This lets us build a large library of continuous functions from basic ones.</p>
+<div class="env-block intuition">
+<div class="env-title">Building New Continuous Functions from Old Ones</div>
+<div class="env-body">
+<p>In Section 1, we listed several elementary functions (polynomials, trig, exponentials) that are continuous on their domains. In Section 2, we classified all the ways continuity can break. Now a practical question arises: <strong>if we add, multiply, or compose continuous functions, is the result still continuous?</strong> If so, we can immediately declare that complicated expressions like \\(e^{\\sin x}\\) or \\(\\sqrt{x^2 + 1}\\) are continuous, without checking the \\(\\varepsilon\\text{-}\\delta\\) definition each time.</p>
+</div>
+</div>
+
+<p>The answer is yes, and this section establishes the rules. We will see that continuity is preserved by all the standard algebraic operations and, crucially, by function composition.</p>
 
 <div class="env-block theorem">
 <div class="env-title">Theorem 2.2 — Algebra of Continuous Functions</div>
@@ -510,7 +544,7 @@ window.CHAPTERS.push({
 \\[\\lim_{x \\to a} f(g(x)) = f\\!\\left(\\lim_{x \\to a} g(x)\\right) = f(g(a)).\\]
 </div>
 
-<p>This is extremely powerful. It means, for instance, that \\(e^{\\sin x}\\), \\(\\sqrt{x^2 + 1}\\), and \\(\\cos(x^3 - 2x)\\) are all continuous on their natural domains, because they are compositions of continuous functions.</p>
+<p>This is extremely powerful. Theorem 2.2 tells us that sums, products, and quotients of continuous functions remain continuous. Theorem 2.3 goes further: plugging one continuous function into another preserves continuity too. Together, these two results mean that expressions like \\(e^{\\sin x}\\), \\(\\sqrt{x^2 + 1}\\), and \\(\\cos(x^3 - 2x)\\) are all continuous on their natural domains, without any need to revisit the \\(\\varepsilon\\text{-}\\delta\\) definition.</p>
 
 <div class="viz-placeholder" data-viz="viz-composition-continuous"></div>
 
@@ -640,7 +674,14 @@ window.CHAPTERS.push({
             content: `
 <h2>Intermediate Value Theorem</h2>
 
-<p>One of the most important consequences of continuity is that a continuous function cannot "skip" values. If it starts below a line and ends above it, it must cross somewhere in between.</p>
+<div class="env-block intuition">
+<div class="env-title">From Building Functions to Understanding Their Behavior</div>
+<div class="env-body">
+<p>So far in this chapter, we have defined continuity (Section 1), classified how it can fail (Section 2), and shown that algebraic operations preserve it (Section 3). These tools let us quickly determine <em>where</em> a function is continuous. But what does continuity actually <strong>guarantee</strong> about a function's behavior? The next two sections answer this with two of the most powerful theorems in calculus.</p>
+</div>
+</div>
+
+<p>The first guarantee is beautifully intuitive: a continuous function cannot "skip" values. If it starts below a horizontal line and ends above it, it must cross that line somewhere in between. You cannot draw a continuous curve from one side to the other without passing through every height in between.</p>
 
 <div class="env-block theorem">
 <div class="env-title">Theorem 2.4 — Intermediate Value Theorem (IVT)</div>
@@ -849,7 +890,7 @@ window.CHAPTERS.push({
             content: `
 <h2>Extreme Value Theorem</h2>
 
-<p>A continuous function on a <em>closed bounded</em> interval is guaranteed to attain both a maximum and a minimum value. This is a fundamental result with far-reaching applications in optimization.</p>
+<p>The IVT told us that continuous functions on closed intervals hit every value between their endpoints. Now we ask a related but different question: <strong>does a continuous function actually achieve a highest and lowest value?</strong> On an open interval, the answer can be no (think of \\(f(x) = x\\) on \\((0,1)\\), which gets arbitrarily close to \\(0\\) and \\(1\\) but never reaches them). But on a <em>closed bounded</em> interval, continuity guarantees that the maximum and minimum are not just approached but actually attained.</p>
 
 <div class="env-block theorem">
 <div class="env-title">Theorem 2.5 — Extreme Value Theorem (EVT)</div>
@@ -897,6 +938,13 @@ window.CHAPTERS.push({
 </div>
 
 <p>The Boundedness Theorem is actually a stepping stone in the proof of the EVT, but it is useful in its own right. It tells us that continuous functions on closed intervals cannot "blow up."</p>
+
+<div class="env-block intuition">
+<div class="env-title">Looking Ahead: From Continuity to Derivatives</div>
+<div class="env-body">
+<p>This chapter established continuity as the first major property of functions built on limits. We saw that continuous functions cannot skip values (IVT) and must attain their extreme values on closed intervals (EVT). In Chapter 3, we will ask an even more refined question: not just <em>whether</em> a function is connected and bounded, but <strong>how fast it is changing</strong> at each point. This leads to the derivative, which is itself defined as a limit. And as we will see, differentiability is a <em>stronger</em> condition than continuity: every differentiable function is continuous, but not every continuous function is differentiable.</p>
+</div>
+</div>
 `,
             visualizations: [
                 {

@@ -10,7 +10,17 @@ window.CHAPTERS.push({
             id: 'ch12-sec01',
             title: 'Area Between Curves',
             content: `
+                <div class="env-block intuition">
+                    <div class="env-title">Chapter Overview</div>
+                    <div class="env-body">
+                        <p>We have built the machinery of integration (Chapters 8&#8211;11): Riemann sums, the Fundamental Theorem, and a toolkit of integration techniques. Now we put that machinery to work. The key idea running through every application in this chapter is always the same: <strong>slice</strong> a geometric or physical quantity into thin pieces, <strong>approximate</strong> each piece by something simple, <strong>sum</strong> them all up, and <strong>take a limit</strong>, which is exactly what a definite integral does.</p>
+                        <p>We begin with areas between curves (the most direct extension of the area-under-a-curve idea), move on to volumes of revolution via two complementary methods (disks/washers and shells), then tackle arc length, and finish with surface area and work. Each new application is really just a new answer to the question: "What quantity sits inside the integral?"</p>
+                    </div>
+                </div>
+
                 <h2>Area Between Curves</h2>
+
+                <p>The simplest application of integration is computing areas. In Chapters 8&#8211;9, we found the area under a single curve. The natural next step is to find the area <em>between</em> two curves, which reduces to integrating the vertical (or horizontal) gap between them.</p>
 
                 <p>One of the most natural applications of the definite integral is computing the area of a region bounded by two or more curves. We already know that \\(\\int_a^b f(x)\\,dx\\) gives the signed area under \\(f(x)\\) from \\(a\\) to \\(b\\). Now we extend this idea to find the area <em>between</em> two curves.</p>
 
@@ -278,6 +288,8 @@ window.CHAPTERS.push({
             content: `
                 <h2>Volume by Disk/Washer Method</h2>
 
+                <p><strong>Where we are headed.</strong> In Section 1, each thin slice was a rectangle whose area we integrated. Now we rotate a region about an axis, and each slice becomes a <strong>disk</strong> (or a <strong>washer</strong>, if there is a hole). The cross-sectional area is \\(\\pi R^2\\) (or \\(\\pi(R^2 - r^2)\\)), and we integrate that area along the axis. This is our first taste of computing volumes, and the "slice and integrate" philosophy carries straight over from area calculations.</p>
+
                 <p>When a region in the plane is rotated about an axis, it sweeps out a <strong>solid of revolution</strong>. The disk and washer methods compute the volume of such solids by slicing them into thin circular cross-sections perpendicular to the axis of rotation.</p>
 
                 <div class="env-block definition">
@@ -495,6 +507,8 @@ window.CHAPTERS.push({
             title: 'Volume by Shell Method',
             content: `
                 <h2>Volume by Shell Method</h2>
+
+                <p><strong>Why another method?</strong> The disk/washer approach from Section 2 slices the solid perpendicular to the axis of rotation. That works beautifully when the boundary is easy to express as a function of the variable along that axis. But sometimes solving for the other variable is messy or impossible in closed form. The <strong>shell method</strong> resolves this by slicing <em>parallel</em> to the axis instead, producing thin cylindrical shells rather than flat disks. You will see that having both tools lets you pick whichever setup yields the simpler integral.</p>
 
                 <p>The <strong>shell method</strong> (cylindrical shells method) provides an alternative approach to computing volumes of revolution. Instead of slicing the solid into disks perpendicular to the axis, we decompose it into thin cylindrical shells parallel to the axis.</p>
 
@@ -748,6 +762,8 @@ window.CHAPTERS.push({
             title: 'Arc Length',
             content: `
                 <h2>Arc Length</h2>
+
+                <p><strong>From area and volume to length.</strong> So far, integration has given us areas (one-dimensional integrals of heights) and volumes (one-dimensional integrals of cross-sectional areas). Now we use the same strategy to measure something even more fundamental: the <em>length</em> of a curve. Instead of slicing a region into thin rectangles or disks, we approximate the curve by short line segments and add up their lengths. The integral that emerges involves the Pythagorean theorem applied at the infinitesimal level, giving the arc length element \\(ds = \\sqrt{1 + [f'(x)]^2}\\,dx\\). This element will reappear in the next section when we compute surface areas.</p>
 
                 <p>We now turn to measuring the <strong>length of a curve</strong>. The key idea is to approximate the curve by a sequence of line segments and take the limit as the number of segments approaches infinity.</p>
 
@@ -1010,6 +1026,8 @@ window.CHAPTERS.push({
             content: `
                 <h2>Surface Area & Work</h2>
 
+                <p><strong>Completing the picture.</strong> We have used integration to measure area (Section 1), volume (Sections 2&#8211;3), and length (Section 4). In this final section we combine ideas from those earlier applications to tackle two more problems. First, <strong>surface area of revolution</strong> unites the arc length element \\(ds\\) from Section 4 with the circular symmetry of Sections 2&#8211;3: each infinitesimal arc sweeps out a thin band whose area is \\(2\\pi f(x)\\,ds\\). Second, <strong>work</strong> shows that integration is not limited to geometry; any time a quantity accumulates as a product of a varying factor and a differential displacement, the integral gives the total.</p>
+
                 <p>In this final section we cover two more applications: the surface area of a solid of revolution, and the physical concept of work done by a variable force.</p>
 
                 <h3>Surface Area of Revolution</h3>
@@ -1091,6 +1109,13 @@ window.CHAPTERS.push({
                             <li><strong>Moments of inertia</strong>: \\(I = \\int r^2\\,dm\\)</li>
                         </ul>
                         <p>These all follow the same pattern: slice, approximate, integrate.</p>
+                    </div>
+                </div>
+
+                <div class="env-block intuition">
+                    <div class="env-title">Looking Ahead</div>
+                    <div class="env-body">
+                        <p>Throughout this chapter, integration gave us tools for <em>finite, concrete calculations</em>: the area of a bounded region, the volume of a specific solid, the length of a particular curve, the work done over a definite displacement. Every answer was a single number obtained by summing finitely many contributions in the limit. But what happens when the sum itself has <em>infinitely many terms</em>? The next chapter explores <strong>sequences and series</strong>, extending the idea of "adding things up" to infinitely many terms, and asking when such an infinite sum converges to a well-defined value.</p>
                     </div>
                 </div>
             `,

@@ -11,7 +11,15 @@ window.CHAPTERS.push({
             id: 'implicit-differentiation',
             title: 'Implicit Differentiation',
             content: `
+<div class="env-block intuition">
+<div class="env-label">From Explicit to Implicit and Parametric</div>
+<p>Until now we have differentiated functions \\(y = f(x)\\) given as explicit formulas. But many curves, such as circles, ellipses, and the folium of Descartes, are defined by equations like \\(x^2 + y^2 = 1\\) where \\(y\\) is not isolated. Others are most naturally described by a pair of equations \\(x = f(t),\\; y = g(t)\\) that trace a path as a parameter \\(t\\) varies. This chapter extends differentiation to these <strong>implicit</strong> and <strong>parametric</strong> settings, and then introduces <strong>polar coordinates</strong> as a powerful alternative to the Cartesian frame.</p>
+<p>We build directly on the chain rule and product rule from earlier chapters. In Chapter 6 we used derivatives to optimize explicit functions; here we will see that the same differentiation rules, applied more creatively, unlock a much wider class of curves.</p>
+</div>
+
 <h2>Implicit Differentiation</h2>
+
+<p>Many important curves in mathematics cannot be written as \\(y = f(x)\\). A circle \\(x^2 + y^2 = 25\\), an ellipse \\(\\frac{x^2}{9} + \\frac{y^2}{4} = 1\\), or the folium \\(x^3 + y^3 = 6xy\\) are all defined by equations relating \\(x\\) and \\(y\\) without explicitly solving for one in terms of the other. In this section we develop a technique, <strong>implicit differentiation</strong>, that finds \\(dy/dx\\) directly from such equations by treating \\(y\\) as a function of \\(x\\) and applying the chain rule.</p>
 
 <div class="env-block definition">
 <div class="env-label">Explicitly vs. Implicitly Defined Functions</div>
@@ -78,6 +86,8 @@ y - b = \\frac{dy}{dx}\\bigg|_{(a,b)} (x - a)
 \\]
 <p>where \\(\\frac{dy}{dx}\\) is found by implicit differentiation.</p>
 </div>
+
+<p><strong>Looking ahead.</strong> Implicit differentiation treats \\(y\\) as a hidden function of \\(x\\). In the next section we take a different approach: instead of hiding the relationship, we <em>parametrize</em> both coordinates as explicit functions of a third variable \\(t\\). This gives us parametric curves, which can represent paths, motions, and shapes that no single equation \\(y = f(x)\\) can capture.</p>
 
 <div class="viz-placeholder" data-viz="viz-implicit-circle"></div>
 <div class="viz-placeholder" data-viz="viz-implicit-ellipse"></div>
@@ -212,6 +222,10 @@ y - b = \\frac{dy}{dx}\\bigg|_{(a,b)} (x - a)
             content: `
 <h2>Parametric Curves</h2>
 
+<p>An implicit equation like \\(x^2 + y^2 = 25\\) tells us <em>which</em> points lie on a curve, but not <em>how</em> or <em>when</em> a point traverses it. <strong>Parametric equations</strong> fill this gap: they describe a curve as a moving point \\((x(t), y(t))\\), where the parameter \\(t\\) often represents time. This representation naturally encodes direction, speed, and self-intersections, making it indispensable in physics, computer graphics, and engineering.</p>
+
+<p>In this section we define parametric curves, study several famous examples (including the cycloid), and practice eliminating the parameter to recover Cartesian equations. The next section will develop the calculus (slopes, arc lengths, areas) of these curves.</p>
+
 <div class="env-block definition">
 <div class="env-label">Parametric Equations</div>
 <p>A <strong>parametric curve</strong> in the plane is defined by two functions:</p>
@@ -258,6 +272,8 @@ x = r(t - \\sin t), \\quad y = r(1 - \\cos t)
 <div class="env-label">Why Parametric?</div>
 <p>Parametric curves can represent paths that pass through the same \\((x,y)\\) point multiple times, curves with vertical tangents, and self-intersecting curves. They also encode <em>motion</em> — the parameter \\(t\\) can represent time, giving direction and speed to the traversal of the curve.</p>
 </div>
+
+<p><strong>Looking ahead.</strong> We can now describe curves parametrically, but we have not yet done calculus on them. How do we find the tangent slope, the arc length, or the area under a parametric curve? The next section answers these questions by combining the chain rule with the parametric representation.</p>
 
 <div class="viz-placeholder" data-viz="viz-parametric-tracer"></div>
 <div class="viz-placeholder" data-viz="viz-cycloid"></div>
@@ -399,6 +415,10 @@ x = r(t - \\sin t), \\quad y = r(1 - \\cos t)
             content: `
 <h2>Calculus with Parametric Curves</h2>
 
+<p>In the previous section we described curves using parametric equations \\(x = f(t),\\; y = g(t)\\). Now we develop the calculus of these curves: finding tangent slopes, computing arc lengths, and calculating enclosed areas. The key idea is the chain rule. Since \\(dy/dx = (dy/dt)/(dx/dt)\\), we can compute the slope entirely from the parametric derivatives, without ever eliminating the parameter.</p>
+
+<p>This section covers three core calculations: <strong>tangent slopes</strong> (first and second derivatives), <strong>arc length</strong>, and <strong>area</strong>. Each formula reduces to an integral in the parameter \\(t\\), which is often simpler than the corresponding Cartesian integral.</p>
+
 <div class="env-block theorem">
 <div class="env-label">Slope of a Parametric Curve</div>
 <p>If \\(x = f(t)\\) and \\(y = g(t)\\) are differentiable and \\(f'(t) \\neq 0\\), then the slope of the curve is:</p>
@@ -456,6 +476,8 @@ A = \\int_a^b g(t) \\, f'(t)\\, dt
 \\]
 <p>This comes from the substitution \\(A = \\int y\\, dx = \\int g(t)\\, f'(t)\\, dt\\).</p>
 </div>
+
+<p><strong>Looking ahead.</strong> Parametric equations use a parameter \\(t\\) that is, conceptually, a "time" variable. But there is another natural way to parametrize curves: by the angle \\(\\theta\\) from the origin. This leads us to <strong>polar coordinates</strong>, a coordinate system where the position of a point is described by its distance \\(r\\) from the origin and the angle \\(\\theta\\) it makes with the positive \\(x\\)-axis.</p>
 
 <div class="viz-placeholder" data-viz="viz-parametric-tangent"></div>
 <div class="viz-placeholder" data-viz="viz-parametric-arclength"></div>
@@ -596,6 +618,10 @@ A = \\int_a^b g(t) \\, f'(t)\\, dt
             content: `
 <h2>Polar Coordinates</h2>
 
+<p>Cartesian coordinates describe every point by its horizontal and vertical displacements \\((x, y)\\). But for curves with rotational symmetry (circles, spirals, flower-shaped petals), a more natural description uses <strong>distance from the origin</strong> and <strong>angle</strong>. This is the polar coordinate system. A polar curve \\(r = f(\\theta)\\) is really a parametric curve with \\(\\theta\\) as the parameter: \\(x = r\\cos\\theta,\\; y = r\\sin\\theta\\). So the parametric machinery we just built applies immediately.</p>
+
+<p>In this section we introduce the polar coordinate system, practice converting between polar and Cartesian forms, and derive the formula for the slope of a polar curve.</p>
+
 <div class="env-block definition">
 <div class="env-label">Polar Coordinate System</div>
 <p>A point in the plane can be represented by <strong>polar coordinates</strong> \\((r, \\theta)\\) where:</p>
@@ -645,6 +671,8 @@ r = \\sqrt{x^2 + y^2}, \\quad \\theta = \\arctan\\frac{y}{x} \\quad (\\text{with
 \\]
 <p>This follows from treating the polar curve as parametric: \\(x = r\\cos\\theta\\), \\(y = r\\sin\\theta\\).</p>
 </div>
+
+<p><strong>Looking ahead.</strong> Now that we can plot polar curves and compute their slopes, we turn to two important geometric questions: what are the shapes of famous polar curves (cardioids, roses, lemniscates), and how do we compute the area they enclose? The polar area formula \\(A = \\frac{1}{2}\\int r^2\\, d\\theta\\) will be the centerpiece of the next section.</p>
 
 <div class="viz-placeholder" data-viz="viz-polar-coords"></div>
 <div class="viz-placeholder" data-viz="viz-polar-conversion"></div>
@@ -789,6 +817,8 @@ r = \\sqrt{x^2 + y^2}, \\quad \\theta = \\arctan\\frac{y}{x} \\quad (\\text{with
             content: `
 <h2>Polar Curves & Areas</h2>
 
+<p>With the polar coordinate system in hand, we now explore the rich gallery of curves it produces and develop the tools to measure them. The polar area formula replaces the familiar \\(\\int y\\, dx\\) with a sum of infinitesimal circular sectors, giving \\(A = \\frac{1}{2}\\int r^2\\, d\\theta\\). We will also derive the polar arc length formula and tackle the more subtle problem of finding the area <em>between</em> two polar curves.</p>
+
 <div class="env-block definition">
 <div class="env-label">Famous Polar Curves</div>
 <ul>
@@ -834,6 +864,12 @@ A = \\frac{1}{2}\\int_\\alpha^\\beta \\left([f(\\theta)]^2 - [g(\\theta)]^2\\rig
 \\[
 L = \\int_\\alpha^\\beta \\sqrt{r^2 + \\left(\\frac{dr}{d\\theta}\\right)^2}\\, d\\theta
 \\]
+</div>
+
+<div class="env-block intuition">
+<div class="env-label">Chapter Reflection: The Full Differentiation Toolkit</div>
+<p>We have now fully explored differentiation in three settings: <strong>explicit</strong> functions \\(y = f(x)\\), <strong>implicit</strong> relations \\(F(x,y) = 0\\), and <strong>parametric/polar</strong> curves \\(x = f(t),\\; y = g(t)\\). In each case the chain rule was the essential engine. Together, these techniques let us analyze tangent lines, slopes, arc lengths, and areas for virtually any curve in the plane.</p>
+<p>A natural question arises: can we reverse the process? Given a derivative \\(f'(x)\\), can we recover the original function \\(f(x)\\)? This is the idea of <strong>antidifferentiation</strong>, and it leads to one of the most powerful ideas in all of mathematics: the integral. That is the subject of Chapter 8.</p>
 </div>
 
 <div class="viz-placeholder" data-viz="viz-polar-gallery"></div>

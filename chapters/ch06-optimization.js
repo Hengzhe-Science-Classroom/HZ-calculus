@@ -13,7 +13,15 @@ window.CHAPTERS.push({
             id: 'ch06-sec01',
             title: 'Optimization Problems',
             content: `
+<div class="env-block intuition">
+<strong>Where we are.</strong>
+In Chapter 5 we learned to read a function's behavior from its derivatives: the first derivative tells us where a function increases or decreases and locates local extrema; the second derivative reveals concavity and inflection points. Those tools let us sketch curves, but they also unlock something even more practical. In this chapter we put them to work on real-world problems: finding the dimensions that maximize an enclosed area, minimizing the material needed for a container, approximating values with tangent lines, and tracking how related quantities change over time. Optimization is where calculus meets engineering, economics, and the sciences.
+</div>
+
 <h2>Optimization Problems</h2>
+
+<p><strong>Section roadmap.</strong>
+We begin with the Closed Interval Method for finding absolute extrema, then develop a general strategy for applied optimization problems. Two worked examples (fencing and box design) illustrate the workflow you will use repeatedly.</p>
 
 <p>One of the most powerful applications of differentiation is finding the <strong>maximum</strong> or <strong>minimum</strong> value of a function on a given domain. This is the heart of <em>optimization</em>.</p>
 
@@ -187,6 +195,12 @@ window.CHAPTERS.push({
             content: `
 <h2>L'Hopital's Rule</h2>
 
+<p><strong>Section roadmap.</strong>
+Optimization showed us how derivatives solve "find the best" problems. Now we turn to a very different application: using derivatives to evaluate stubborn limits. L'Hopital's Rule converts indeterminate forms like \\(0/0\\) and \\(\\infty/\\infty\\) into derivative computations we already know how to handle.</p>
+
+<p><strong>Connection to earlier material.</strong>
+Recall from Chapter 1 that we often evaluated limits by algebraic manipulation or the squeeze theorem. L'Hopital's Rule gives us a powerful alternative that works even when those earlier tricks fail.</p>
+
 <p>When computing limits, we often encounter <strong>indeterminate forms</strong> such as \\(\\frac{0}{0}\\) or \\(\\frac{\\infty}{\\infty}\\). L'Hopital's Rule provides an elegant way to evaluate such limits.</p>
 
 <div class="concept-box">
@@ -335,6 +349,12 @@ window.CHAPTERS.push({
             title: 'Newton\'s Method',
             content: `
 <h2>Newton's Method</h2>
+
+<p><strong>Section roadmap.</strong>
+L'Hopital's Rule used derivatives to compute limits. Now we use derivatives in a completely different way: as a root-finding engine. Newton's Method exploits the tangent line (the linearization from the derivative) to zero in on solutions of equations with remarkable speed.</p>
+
+<p><strong>Motivation.</strong>
+Many important equations, such as \\(\\cos x = x\\) or \\(x^5 - x - 1 = 0\\), have no closed-form solution. We need a numerical method. Newton's Method is the workhorse algorithm, and its quadratic convergence makes it extraordinarily efficient when it works.</p>
 
 <p>Newton's Method (also called the Newton-Raphson method) is an iterative algorithm for finding roots of equations. Starting from an initial guess \\(x_0\\), we use the tangent line at each iterate to get a better approximation.</p>
 
@@ -594,6 +614,12 @@ window.CHAPTERS.push({
             content: `
 <h2>Linear Approximation & Differentials</h2>
 
+<p><strong>Section roadmap.</strong>
+Newton's Method used the tangent line to find where a function equals zero. Here we zoom in on the tangent line itself and ask: how well does it approximate the function nearby? This idea, called linearization, is one of the most broadly useful concepts in all of applied mathematics. We also introduce differentials, a compact notation for approximating small changes.</p>
+
+<p><strong>Connection.</strong>
+The linearization \\(L(x) = f(a) + f'(a)(x-a)\\) is exactly the first-order Taylor polynomial. In later chapters, adding higher-order terms will yield even better approximations (Taylor series), but the linear case already handles a surprising range of practical problems.</p>
+
 <p>The tangent line at \\(x = a\\) gives the best <strong>linear approximation</strong> to \\(f(x)\\) near \\(a\\). This idea has far-reaching applications in science and engineering.</p>
 
 <div class="concept-box">
@@ -782,6 +808,12 @@ window.CHAPTERS.push({
             content: `
 <h2>Related Rates</h2>
 
+<p><strong>Section roadmap.</strong>
+Linear approximation showed how a small change \\(dx\\) produces a proportional change \\(dy \\approx f'(x)\\,dx\\). Related rates extends this idea to multiple quantities that all change with time. By differentiating a geometric or physical relationship with respect to \\(t\\), we connect the rates of change of different variables through the chain rule.</p>
+
+<p><strong>Motivation.</strong>
+In the real world, variables rarely change in isolation. When a balloon inflates, its radius, surface area, and volume all change simultaneously. When a ladder slides, horizontal and vertical positions are linked by the Pythagorean theorem. Related rates problems let us find one rate from another.</p>
+
 <p>In a <strong>related rates</strong> problem, we have several quantities that are changing with time, linked by an equation. We use <strong>implicit differentiation with respect to time</strong> to find how the rate of change of one quantity is related to the rates of change of the others.</p>
 
 <div class="concept-box">
@@ -812,6 +844,11 @@ window.CHAPTERS.push({
 \\[\\frac{dV}{dt} = \\frac{4\\pi}{25} h^2 \\frac{dh}{dt} \\implies \\frac{dh}{dt} = \\frac{25}{4\\pi h^2} \\cdot \\frac{dV}{dt}\\]
 <p>With \\(h=5\\) and \\(\\frac{dV}{dt} = -2\\):</p>
 \\[\\frac{dh}{dt} = \\frac{25}{4\\pi(25)}(-2) = \\frac{-1}{2\\pi} \\approx -0.159 \\text{ m/min}\\]
+
+<div class="env-block intuition">
+<strong>Looking ahead.</strong>
+Throughout this chapter, every function we differentiated was given explicitly as \\(y = f(x)\\). But many important relationships are defined implicitly; for example, the equation \\(x^2 + y^2 = 25\\) defines a circle without ever isolating \\(y\\). In the related rates section, we already differentiated the equation \\(x^2 + y^2 = L^2\\) with respect to \\(t\\), treating both \\(x\\) and \\(y\\) as functions of time. That is a preview of implicit differentiation. In Chapter 7 we formalize this technique, extend it to parametric curves and polar coordinates, and open up a much wider class of functions we can analyze.
+</div>
             `,
             visualizations: [
                 {

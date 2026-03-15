@@ -12,6 +12,15 @@ window.CHAPTERS.push({
             content: `
 <h2>1 &middot; Vector Fields</h2>
 
+<div class="env-block intuition">
+<div class="env-label">Chapter Overview</div>
+So far we have differentiated and integrated scalar functions of one and several variables. But physics deals with <strong>vector fields</strong>: wind velocity, gravitational force, electric fields. This chapter develops the calculus of vector fields, including gradient, divergence, curl, line integrals, and surface integrals, culminating in the great theorems (Green's, Stokes', Divergence) that unify them all. Where Chapter 17 extended integration to functions of several variables, Chapter 18 extends it further to <em>vector-valued</em> functions over curves, surfaces, and solids.
+</div>
+
+<p>
+We begin with the basic objects of study: vector fields and the key distinction between conservative (gradient) fields and non-conservative ones. This distinction will drive the entire chapter, because conservative fields enjoy a powerful shortcut for computing integrals.
+</p>
+
 <div class="env-block definition">
 <div class="env-label">Definition &mdash; Vector Field</div>
 A <strong>vector field</strong> on a region \\(D \\subseteq \\mathbb{R}^2\\) is a function
@@ -137,6 +146,10 @@ is \\(\\mathbf{F} = \\frac{-y}{x^2+y^2}\\,\\mathbf{i} + \\frac{x}{x^2+y^2}\\,\\m
             title: 'Line Integrals',
             content: `
 <h2>2 &middot; Line Integrals</h2>
+
+<p>
+With vector fields in hand, we now ask: how do we integrate them? In single-variable calculus, we integrated along the \\(x\\)-axis. In Chapter 17, we integrated over flat regions and solid bodies. Here, we integrate along <strong>curves</strong>, which lets us compute quantities like the work done by a force field along a path. The payoff comes at the end of this section: for conservative fields, the line integral depends only on the endpoints, not the path taken, giving us a higher-dimensional analogue of the Fundamental Theorem of Calculus.
+</p>
 
 <div class="env-block definition">
 <div class="env-label">Definition &mdash; Line Integral of a Scalar Function</div>
@@ -333,6 +346,10 @@ A vector field is conservative if and only if its line integral is path-independ
             content: `
 <h2>3 &middot; Green's Theorem</h2>
 
+<p>
+Line integrals along a closed curve and double integrals over the enclosed region seem like unrelated calculations. Green's Theorem reveals a deep connection: the circulation of a vector field around a closed boundary equals the integral of its curl over the interior. This is the first of three "big theorems" in this chapter, each relating a boundary integral to an interior integral in progressively higher dimensions. It also gives an elegant way to compute areas via line integrals.
+</p>
+
 <div class="env-block theorem">
 <div class="env-label">Green's Theorem</div>
 Let \\(C\\) be a positively oriented (counterclockwise), piecewise-smooth, simple closed curve bounding a region \\(D\\). If \\(P\\) and \\(Q\\) have continuous partial derivatives on an open region containing \\(D\\), then
@@ -496,6 +513,10 @@ The positive orientation for a simple closed curve is counterclockwise&mdash;the
             title: 'Divergence & Curl',
             content: `
 <h2>4 &middot; Divergence &amp; Curl</h2>
+
+<p>
+Green's Theorem hinted that two local properties of a vector field, the "spreading out" and the "spinning," control its global behaviour. This section formalises those ideas as <strong>divergence</strong> and <strong>curl</strong>, the two fundamental differential operators for vector fields. Divergence measures local expansion or compression (think of a gas leaking from a point), while curl measures local rotation (think of a tiny paddle wheel). Mastering these operators is essential for the grand theorems of the next section and for every corner of physics, from fluid mechanics to electromagnetism.
+</p>
 
 <div class="env-block definition">
 <div class="env-label">Definition &mdash; Divergence</div>
@@ -679,6 +700,10 @@ The <strong>Laplacian</strong> of a scalar field is \\(\\nabla^2 f = \\nabla \\c
             content: `
 <h2>5 &middot; Stokes' &amp; Divergence Theorems</h2>
 
+<p>
+Everything in this chapter converges here. Green's Theorem linked a boundary line integral to an interior double integral in 2D. Now we lift that idea into three dimensions with <strong>Stokes' Theorem</strong> (relating circulation around a curve to curl flux through a surface) and the <strong>Divergence Theorem</strong> (relating flux through a closed surface to divergence throughout the enclosed solid). Together with the Fundamental Theorem of Calculus, these results form a single grand pattern: integration over a boundary equals integration of a derivative over the interior.
+</p>
+
 <div class="env-block theorem">
 <div class="env-label">Stokes' Theorem</div>
 Let \\(S\\) be an oriented smooth surface bounded by a simple, closed, piecewise-smooth boundary curve \\(C\\) with positive orientation. If \\(\\mathbf{F}\\) has continuous partial derivatives, then
@@ -753,6 +778,11 @@ The classical theorems of vector calculus are all instances of the generalised S
 <li>If \\(\\nabla \\times \\mathbf{F} = \\mathbf{0}\\) everywhere (irrotational), the circulation around any closed curve is zero&mdash;the field is conservative.</li>
 </ul>
 These principles are the mathematical backbone of Maxwell's equations in electromagnetism.
+</div>
+
+<div class="env-block intuition">
+<div class="env-label">Looking Ahead</div>
+Vector calculus describes how fields vary <em>in space</em>. The final chapter turns to how quantities evolve <em>in time</em>: differential equations, where the unknown is a function and the equation involves its derivatives. In Chapter 19, we study first-order ordinary differential equations (ODEs), which model growth, decay, mixing, and countless other dynamic processes. The tools of this chapter, especially gradient fields and the notion of a potential function, will resurface whenever an ODE arises from a physical field.
 </div>
 `,
             visualizations: [

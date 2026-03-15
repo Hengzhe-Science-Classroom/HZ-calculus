@@ -14,6 +14,12 @@ window.CHAPTERS.push({
             content: `
 <h2>10.1 Area Function A(x)</h2>
 
+<div class="env-block env-intuition">
+<div class="env-header">Chapter Overview</div>
+<p>We have developed two big ideas independently: <strong>antiderivatives</strong> (Chapter 8) reverse the process of differentiation, and <strong>definite integrals</strong> (Chapter 9) compute areas via Riemann sums. At first glance these seem unrelated; one is an algebraic operation on functions, the other is a geometric quantity defined by limits of sums. This chapter proves they are two faces of the same coin. The <strong>Fundamental Theorem of Calculus</strong> is the single most important result in the course, and it connects every topic that came before to every topic that follows.</p>
+<p>We begin by studying what happens when the upper limit of a definite integral is allowed to vary, producing a new function called the <em>area function</em>. From there, we prove the two parts of the FTC, explore the Net Change Theorem, and finally step back to see how differentiation and integration form a unified whole.</p>
+</div>
+
 <div class="env-block env-motivation">
 <div class="env-header">Motivation</div>
 <p>In the previous chapter, we defined the definite integral \\(\\int_a^b f(t)\\,dt\\) as the limit of Riemann sums. Now we ask a powerful question: <strong>what happens if we let the upper limit vary?</strong> If we replace the fixed endpoint \\(b\\) with a variable \\(x\\), we obtain a new function&mdash;the <em>area function</em>&mdash;that accumulates the signed area under \\(f\\) as \\(x\\) moves.</p>
@@ -62,7 +68,8 @@ window.CHAPTERS.push({
 
 <div class="env-block env-intuition">
 <div class="env-header">Rate of Change of A(x)</div>
-<p>Observe from Example 10.1 that \\(A(x) = \\frac{x^2}{2}\\) and \\(A'(x) = x = f(x)\\). From Example 10.2, \\(A(x) = \\sin x\\) and \\(A'(x) = \\cos x = f(x)\\). This is no coincidence&mdash;it is the content of the Fundamental Theorem of Calculus, Part I.</p>
+<p>Observe from Example 10.1 that \\(A(x) = \\frac{x^2}{2}\\) and \\(A'(x) = x = f(x)\\). From Example 10.2, \\(A(x) = \\sin x\\) and \\(A'(x) = \\cos x = f(x)\\). This is no coincidence; it is the content of the Fundamental Theorem of Calculus, Part I.</p>
+<p><strong>Connection to what follows.</strong> The pattern \\(A'(x) = f(x)\\) suggests that the area function is an antiderivative of \\(f\\). The next section makes this observation precise and proves it rigorously.</p>
 </div>
 `,
             visualizations: [
@@ -250,6 +257,11 @@ window.CHAPTERS.push({
             content: `
 <h2>10.2 The Fundamental Theorem of Calculus, Part I</h2>
 
+<div class="env-block env-intuition">
+<div class="env-header">Section Roadmap</div>
+<p>This section states and proves <strong>FTC Part I</strong>, then extends it via the chain rule. The key message: differentiating a definite integral with a variable upper limit simply recovers the integrand. This is the first half of the bridge connecting derivatives and integrals.</p>
+</div>
+
 <div class="env-block env-motivation">
 <div class="env-header">Motivation</div>
 <p>We noticed in the previous section that the derivative of the area function \\(A(x)\\) seemed to equal \\(f(x)\\) itself. Is this always true? The answer is <em>yes</em>, and this profound result is the <strong>First Fundamental Theorem of Calculus</strong>. It tells us that integration and differentiation are inverse processes.</p>
@@ -305,6 +317,8 @@ window.CHAPTERS.push({
 <p>More generally, if both limits depend on \\(x\\):</p>
 \\[ \\frac{d}{dx}\\int_{v(x)}^{u(x)} f(t)\\,dt = f(u(x)) \\cdot u'(x) - f(v(x)) \\cdot v'(x). \\]
 </div>
+
+<p><strong>Looking ahead.</strong> FTC I tells us that differentiation undoes integration. The natural follow-up question is the reverse: can integration undo differentiation? That is, can we <em>evaluate</em> a definite integral by finding an antiderivative? FTC Part II, in the next section, answers with a resounding yes.</p>
 
 <div class="viz-container" id="viz-ftc1-thin-rectangle"></div>
 `,
@@ -500,9 +514,14 @@ window.CHAPTERS.push({
             content: `
 <h2>10.3 The Fundamental Theorem of Calculus, Part II</h2>
 
+<div class="env-block env-intuition">
+<div class="env-header">Section Roadmap</div>
+<p>FTC Part I showed that differentiation undoes integration. This section proves the converse: <strong>FTC Part II</strong> (the Evaluation Theorem) lets us compute any definite integral by finding an antiderivative and subtracting endpoint values. This is the result that makes the Riemann-sum machinery from Chapter 9 largely unnecessary for practical computation.</p>
+</div>
+
 <div class="env-block env-motivation">
 <div class="env-header">Motivation</div>
-<p>FTC I told us that differentiation undoes integration. Now we ask the reverse: can we <em>evaluate</em> a definite integral using antiderivatives? FTC II gives a resounding yes&mdash;and provides the most powerful computational tool in all of calculus.</p>
+<p>FTC I told us that differentiation undoes integration. Now we ask the reverse: can we <em>evaluate</em> a definite integral using antiderivatives? FTC II gives a resounding yes, and provides the most powerful computational tool in all of calculus.</p>
 </div>
 
 <div class="env-block env-theorem">
@@ -554,6 +573,8 @@ window.CHAPTERS.push({
 <div class="env-header">Remark &mdash; Any Antiderivative Works</div>
 <p>Since \\((F(x) + C)\\big|_a^b = F(b) + C - F(a) - C = F(b) - F(a)\\), the constant of integration cancels. Thus we can use <em>any</em> antiderivative; the simplest one (with \\(C = 0\\)) is preferred.</p>
 </div>
+
+<p><strong>Connection.</strong> FTC II converts every definite integral into an antiderivative evaluation. But there is another way to read the same equation: the integral of a <em>rate of change</em> gives the <em>net change</em>. The next section develops this interpretation, which is central to applications in physics and the sciences.</p>
 `,
             visualizations: [
                 {
@@ -699,6 +720,11 @@ window.CHAPTERS.push({
             content: `
 <h2>10.4 The Net Change Theorem</h2>
 
+<div class="env-block env-intuition">
+<div class="env-header">Section Roadmap</div>
+<p>This section reinterprets FTC II from a physical and applied perspective. The <strong>Net Change Theorem</strong> says: if you know the rate at which a quantity changes, integrating that rate gives the total (net) change. We will apply this to displacement vs. distance, flow rates, and population growth, building intuition for the integral as "total accumulation."</p>
+</div>
+
 <div class="env-block env-motivation">
 <div class="env-header">Motivation</div>
 <p>FTC II can be rewritten in a way that emphasizes a physical interpretation: the integral of a rate of change gives the net change. This viewpoint connects calculus to real-world problems involving velocity, flow rates, population growth, and more.</p>
@@ -746,6 +772,8 @@ window.CHAPTERS.push({
 </ul>
 <p>These differ whenever the velocity changes sign (the object reverses direction).</p>
 </div>
+
+<p><strong>Looking ahead.</strong> With the Net Change Theorem in hand, we have seen the FTC from both the theoretical and the applied side. The final section of this chapter steps back to view the full picture: differentiation and integration as inverse operations, unified by the FTC.</p>
 
 <div class="viz-container" id="viz-net-change-rates"></div>
 `,
@@ -901,6 +929,11 @@ window.CHAPTERS.push({
             content: `
 <h2>10.5 Connecting Differentiation and Integration</h2>
 
+<div class="env-block env-intuition">
+<div class="env-header">Section Roadmap</div>
+<p>This final section synthesizes everything. We place FTC I and FTC II side by side, see how they form a complete cycle between \\(f\\) and its antiderivative \\(F\\), and reflect on the historical significance of this unification. We also preview how the FTC motivates the integration techniques developed in Chapter 11.</p>
+</div>
+
 <div class="env-block env-motivation">
 <div class="env-header">The Big Picture</div>
 <p>The two parts of the Fundamental Theorem of Calculus reveal that differentiation and integration are <strong>inverse processes</strong>. This is arguably the most profound idea in all of mathematics:</p>
@@ -957,7 +990,12 @@ window.CHAPTERS.push({
 
 <div class="env-block env-intuition">
 <div class="env-header">Looking Ahead</div>
-<p>The FTC turns the problem of evaluating integrals into the problem of finding antiderivatives. In the next chapter, we will develop systematic <em>techniques of integration</em>&mdash;substitution, integration by parts, partial fractions, and more&mdash;to find antiderivatives of a wide variety of functions.</p>
+<p>The FTC says that to evaluate a definite integral, find an antiderivative. But finding antiderivatives can be tricky: while every continuous function has an antiderivative (FTC I guarantees it), there is no single formula that works for all integrands. The next chapter develops systematic <em>techniques of integration</em>, including substitution, integration by parts, and partial fractions, giving you a toolkit for computing antiderivatives of a wide variety of functions.</p>
+</div>
+
+<div class="env-block env-intuition">
+<div class="env-header">Chapter Summary</div>
+<p>This chapter established the Fundamental Theorem of Calculus in two parts. <strong>FTC I</strong> says that differentiating the area function recovers the integrand: \\(\\frac{d}{dx}\\int_a^x f(t)\\,dt = f(x)\\). <strong>FTC II</strong> (the Evaluation Theorem) says that \\(\\int_a^b f(x)\\,dx = F(b) - F(a)\\) for any antiderivative \\(F\\). Together, these results show that differentiation and integration are inverse processes, unifying the two main branches of calculus. The Net Change Theorem recast this relationship in applied terms: integrating a rate of change gives the total change. With the FTC as our foundation, the remaining challenge is practical: how to find antiderivatives efficiently. That is the subject of Chapter 11.</p>
 </div>
 `,
             visualizations: [

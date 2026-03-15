@@ -11,7 +11,26 @@ sections: [
     id: 'power-series-convergence',
     title: 'Power Series & Radius of Convergence',
     content: `
+<div class="env-block intuition">
+<strong>Where we are.</strong>
+In Chapter 13 we studied series of constants: expressions like \\(\\sum a_n\\) whose terms are fixed numbers.
+Now we introduce a variable: a <strong>power series</strong> \\(\\sum a_n x^n\\) is an "infinite polynomial" whose convergence depends on the value of \\(x\\).
+This single idea unlocks one of the most powerful tools in all of mathematics.
+Taylor series let us represent familiar functions (\\(e^x\\), \\(\\sin x\\), \\(\\ln(1+x)\\)) as power series, turning hard problems (integrals without closed forms, differential equations, limit computations) into routine algebra with polynomials.
+By the end of this chapter you will be able to expand functions into power series, bound approximation errors, and apply series to problems that elementary methods cannot touch.
+</div>
+
 <h2>Power Series & Radius of Convergence</h2>
+
+<p><strong>Section roadmap.</strong>
+We begin by defining power series and asking the fundamental question: for which values of \\(x\\) does a given power series converge?
+The answer is beautifully structured. Every power series converges on an interval centered at its base point, and the <em>radius of convergence</em> \\(R\\) measures how far that interval extends.
+We develop the ratio test formula for computing \\(R\\) and practice finding intervals of convergence, including endpoint analysis.</p>
+
+<p><strong>Connection to Chapter 13.</strong>
+The convergence tests you learned for constant series (ratio test, root test, alternating series test) now become tools for analyzing power series.
+For any fixed \\(x\\), the power series \\(\\sum a_n x^n\\) is just a numerical series, and we apply the same tests.
+The new twist is that the outcome depends on \\(x\\), which is why we get an <em>interval</em> rather than a single yes-or-no answer.</p>
 
 <div class="env-block definition">
 <div class="env-title">Definition 14.1 — Power Series</div>
@@ -162,6 +181,16 @@ L = \\lim_{n \\to \\infty} \\left|\\frac{a_{n+1}}{a_n}\\right| = \\lim_{n \\to \
     title: 'Taylor & Maclaurin Series',
     content: `
 <h2>Taylor & Maclaurin Series</h2>
+
+<p><strong>Section roadmap.</strong>
+Now that we know what power series are and where they converge, we ask the reverse question: given a function \\(f\\), can we find a power series that represents it?
+The answer is the Taylor series, which builds the coefficients from the derivatives of \\(f\\).
+We derive the formula, define Maclaurin series (the special case centered at 0), and compute the Taylor series for \\(e^x\\), \\(\\sin x\\), and \\(\\cos x\\).</p>
+
+<p><strong>Motivation.</strong>
+In Section 1 we started with a power series and studied its convergence.
+Here we go in the other direction: we start with a known function and construct its power series representation.
+This is the key idea that connects the abstract theory of power series to concrete computation.</p>
 
 <p>If a function \\(f\\) can be represented by a power series at \\(a\\), what must the coefficients be? This question leads to one of the most beautiful results in calculus.</p>
 
@@ -332,6 +361,16 @@ e^x = \\sum_{n=0}^{\\infty} \\frac{x^n}{n!} = 1 + x + \\frac{x^2}{2!} + \\frac{x
     content: `
 <h2>Taylor Polynomials & Remainder</h2>
 
+<p><strong>Section roadmap.</strong>
+A Taylor series is an infinite object, but in practice we use finitely many terms.
+The \\(n\\)-th degree Taylor polynomial \\(T_n(x)\\) is the partial sum that approximates \\(f(x)\\), and the <em>remainder</em> \\(R_n(x) = f(x) - T_n(x)\\) measures the error.
+Taylor's theorem (Lagrange form) gives an explicit bound on this error, answering the crucial practical question: <em>how many terms do I need for a given accuracy?</em></p>
+
+<p><strong>Connection to Section 2.</strong>
+In the previous section we derived the Taylor series and computed several examples, but we deferred a critical issue: does the series actually converge to the function?
+The remainder estimate in this section resolves that question.
+If we can show \\(R_n(x) \\to 0\\) as \\(n \\to \\infty\\), the Taylor series converges to \\(f(x)\\), and the error bound tells us exactly how fast.</p>
+
 <div class="env-block definition">
 <div class="env-title">Definition 14.4 — Taylor Polynomial of Degree \\(n\\)</div>
 <p>The <strong>\\(n\\)-th degree Taylor polynomial</strong> of \\(f\\) at \\(a\\) is the partial sum</p>
@@ -481,6 +520,11 @@ R_n(x) = f(x) - T_n(x) = \\frac{f^{(n+1)}(\\xi)}{(n+1)!}(x-a)^{n+1}
     title: 'Common Taylor Series',
     content: `
 <h2>Common Taylor Series</h2>
+
+<p><strong>Section roadmap.</strong>
+Sections 2 and 3 gave us the theory: how to build a Taylor series and how to control its error.
+This section collects the seven most important Maclaurin series into a reference table that you will use constantly in later courses and applications.
+We also develop techniques for deriving new series from known ones (substitution, differentiation, integration, multiplication), so you rarely need to compute Taylor coefficients from scratch.</p>
 
 <p>Several functions have Taylor series that appear throughout mathematics and applications. These should be memorized.</p>
 
@@ -691,6 +735,14 @@ e^{-x^2} = \\sum_{n=0}^{\\infty} \\frac{(-x^2)^n}{n!} = \\sum_{n=0}^{\\infty} \\
     content: `
 <h2>Applications of Power Series</h2>
 
+<p><strong>Section roadmap.</strong>
+With the theory and the reference table in hand, we now put power series to work.
+We show four major applications: evaluating tricky limits by expanding numerator and denominator, computing integrals that have no closed-form antiderivative (like \\(\\int e^{-x^2}\\,dx\\)), solving differential equations by assuming a power series solution, and arriving at Euler's formula \\(e^{ix} = \\cos x + i\\sin x\\), one of the most celebrated identities in all of mathematics.</p>
+
+<p><strong>Connection to earlier material.</strong>
+In Chapter 6 we used L'Hopital's Rule to evaluate indeterminate-form limits. Taylor expansion offers an alternative approach that is often faster and more transparent: expand each piece, cancel, and read off the answer.
+Similarly, where integration techniques from Chapter 11 sometimes fail (no elementary antiderivative exists), term-by-term integration of a power series always works within the radius of convergence.</p>
+
 <p>Power series provide a powerful toolkit for problems that are difficult or impossible to solve using elementary methods.</p>
 
 <h3>Computing Limits</h3>
@@ -755,6 +807,15 @@ e^{ix} = \\sum_{n=0}^{\\infty} \\frac{(ix)^n}{n!} = \\sum_{n=0}^{\\infty} \\frac
 </div>
 
 <div class="viz-container" id="viz-applications" data-viz="powerSeriesApplications"></div>
+
+<div class="env-block intuition">
+<div class="env-title">Looking Ahead: From One Variable to Many</div>
+<p>Power series and Taylor expansions complete our study of single-variable calculus.
+We have traveled from limits through derivatives, integrals, sequences, series, and now infinite polynomial representations of functions.
+The remaining chapters extend the ideas of calculus to functions of <em>several</em> variables.
+In Chapter 15 we introduce multivariable functions and partial derivatives, asking: how does a function \\(f(x, y)\\) change when we vary just one input at a time?
+Many of the tools you have built here (limits, derivative rules, Taylor polynomials) carry over naturally to the multivariable setting, so the transition will feel like a broadening of familiar ideas rather than a restart.</p>
+</div>
     `,
     visualizations: [{
         id: 'powerSeriesApplications',

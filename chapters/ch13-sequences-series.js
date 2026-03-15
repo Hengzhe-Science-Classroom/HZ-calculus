@@ -13,7 +13,13 @@ window.CHAPTERS.push({
             id: 'sequences-limits',
             title: 'Sequences & Their Limits',
             content: `
+<div class="env-block intuition">
+<p><strong>From continuous to discrete.</strong> So far in calculus, we have worked with continuous processes: limits of functions, derivatives, integrals. Now we turn to discrete processes: <em>sequences</em> (ordered lists of numbers) and <em>series</em> (infinite sums). The key insight is that a series is really a sequence in disguise; we study the sequence of partial sums. This chapter develops the tools to decide when an infinite sum converges, setting the stage for power series and Taylor series in Chapter 14.</p>
+</div>
+
 <h2>Sequences & Their Limits</h2>
+
+<p>We begin with the most fundamental discrete object: a sequence of real numbers. Sequences appear everywhere in mathematics, from recursive algorithms to the partial sums that define series. Understanding when and how a sequence converges is the foundation for everything that follows in this chapter.</p>
 
 <div class="env-block definition">
 <div class="env-label">Definition 13.1 — Sequence</div>
@@ -378,6 +384,10 @@ window.CHAPTERS.push({
             id: 'infinite-series',
             title: 'Infinite Series & Partial Sums',
             content: `
+<div class="env-block intuition">
+<p><strong>From sequences to series.</strong> In the previous section we studied sequences and their limits. Now we ask a bolder question: can we <em>add up</em> infinitely many numbers and get a finite result? The answer is sometimes yes, sometimes no, and the key to deciding is elegant: define the <em>partial sums</em> \\(S_N = a_1 + a_2 + \\cdots + a_N\\), which form a new sequence \\(\\{S_N\\}\\). The infinite series \\(\\sum a_n\\) converges precisely when this sequence of partial sums converges. In other words, series convergence <em>is</em> sequence convergence.</p>
+</div>
+
 <h2>Infinite Series & Partial Sums</h2>
 
 <div class="env-block definition">
@@ -706,6 +716,10 @@ window.CHAPTERS.push({
             id: 'comparison-integral',
             title: 'Comparison & Integral Tests',
             content: `
+<div class="env-block intuition">
+<p><strong>Beyond closed-form sums.</strong> In the last section we computed series by finding explicit formulas for partial sums (geometric, telescoping). But most series have no closed-form partial sum. We need indirect methods: if we already know a "benchmark" series converges or diverges, we can compare our unknown series to it. This section introduces two families of such tests: <em>comparison tests</em> (direct and limit) and the <em>integral test</em>, which connects discrete sums back to the continuous integrals of Chapter 12.</p>
+</div>
+
 <h2>Comparison & Integral Tests</h2>
 
 <p>For most series, we cannot find a closed-form for the partial sums. Instead, we develop <strong>convergence tests</strong> that compare a given series to one we already understand.</p>
@@ -968,6 +982,10 @@ window.CHAPTERS.push({
             id: 'ratio-root',
             title: 'Ratio & Root Tests',
             content: `
+<div class="env-block intuition">
+<p><strong>Measuring the rate of decay.</strong> The comparison and integral tests work well for series whose terms look like rational functions of \\(n\\). But what about series with factorials (\\(n!\\)) or exponentials (\\(a^n\\))? For those, we need tests that measure the <em>ratio</em> of consecutive terms or the <em>nth root</em> of each term. Both tests reduce convergence to a single number \\(L\\): if \\(L < 1\\) the terms shrink fast enough to converge; if \\(L > 1\\) they grow too fast; if \\(L = 1\\) the test cannot decide.</p>
+</div>
+
 <h2>Ratio & Root Tests</h2>
 
 <p>The Ratio and Root Tests are especially useful for series involving factorials, exponentials, and \\(n\\)-th powers. They measure how fast the terms of a series decay.</p>
@@ -1315,6 +1333,10 @@ window.CHAPTERS.push({
             id: 'alternating-absolute',
             title: 'Alternating Series & Absolute Convergence',
             content: `
+<div class="env-block intuition">
+<p><strong>What if the signs alternate?</strong> Every convergence test so far (comparison, integral, ratio, root) assumed non-negative terms. But many natural series, such as \\(1 - \\frac{1}{2} + \\frac{1}{3} - \\frac{1}{4} + \\cdots\\), flip sign at each step. The cancellation between positive and negative terms can rescue convergence even when the absolute values diverge. This leads to a crucial distinction: <em>absolute</em> versus <em>conditional</em> convergence, one of the subtlest ideas in analysis.</p>
+</div>
+
 <h2>Alternating Series & Absolute Convergence</h2>
 
 <p>Up to now, our convergence tests applied only to series with positive terms. But many important series have terms that alternate in sign.</p>
@@ -1381,6 +1403,10 @@ window.CHAPTERS.push({
 <div class="env-block remark">
 <div class="env-label">Remark — Riemann Rearrangement Theorem</div>
 <p>A conditionally convergent series can be rearranged to converge to <em>any</em> prescribed value, or even to diverge. This remarkable theorem shows that the order of summation matters for conditionally convergent series, but not for absolutely convergent ones.</p>
+</div>
+
+<div class="env-block intuition">
+<p><strong>Looking ahead.</strong> We now have a full toolkit for deciding whether a series of <em>constants</em> converges or diverges. But the most powerful application comes when the terms involve a variable \\(x\\), giving us <em>power series</em>, infinite polynomials of the form \\(\\sum a_n x^n\\). These can represent functions like \\(e^x\\), \\(\\sin x\\), and \\(\\ln(1+x)\\) with extraordinary precision. In Chapter 14 we will see how every convergence test from this chapter finds a natural home in the theory of power series and Taylor series.</p>
 </div>
 `,
             visualizations: [

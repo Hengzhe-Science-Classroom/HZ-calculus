@@ -11,10 +11,22 @@ window.CHAPTERS.push({
       id: 'ch04-sec01',
       title: '1. Power Rule & Basic Rules',
       content: `
+<div class="env-block intuition">
+<strong>Where we are.</strong>
+In Chapter 3 we defined the derivative using limits and saw its geometric meaning as a tangent-line slope.
+That definition is conceptually powerful, but computing a limit every time is slow and error-prone.
+This chapter develops four efficient rules (power, product, quotient, chain) that let us differentiate
+any elementary function mechanically, no limits required. By the end, differentiation will feel like arithmetic.
+</div>
+
 <h2>Power Rule & Basic Rules</h2>
 
+<p><strong>Section roadmap.</strong>
+We start with the simplest and most-used rule: the <em>power rule</em>, which handles every monomial \\(x^n\\).
+We then add the constant, constant-multiple, and sum/difference rules so we can differentiate any polynomial in seconds.</p>
+
 <p>
-In Chapter 3 we learned what a derivative <em>is</em> — the limit of a difference quotient.
+In Chapter 3 we learned what a derivative <em>is</em>, the limit of a difference quotient.
 Computing that limit from scratch every time would be painfully slow.
 Fortunately, a small collection of rules lets us differentiate almost any function
 we will ever meet, without returning to the definition.
@@ -38,6 +50,11 @@ we will ever meet, without returning to the definition.
     <li>\\(\\frac{d}{dx}[x^{\\pi}] = \\pi\\,x^{\\pi-1}\\)</li>
   </ul>
 </div>
+
+<p>
+The power rule alone handles every monomial \\(x^n\\).
+But most functions are sums of scaled monomials (polynomials), so we also need rules for constants, scalar multiples, and sums.
+</p>
 
 <h3>Constant Rule & Constant Multiple Rule</h3>
 
@@ -105,6 +122,14 @@ we will ever meet, without returning to the definition.
     </tr>
   </tbody>
 </table>
+
+<p>
+<strong>Looking ahead.</strong>
+The power rule handles individual terms, and the sum rule lets us differentiate term-by-term.
+But real functions are not always sums of monomials.
+What happens when two functions are <em>multiplied</em> or <em>divided</em>?
+The next section introduces the product and quotient rules for exactly those situations.
+</p>
 
 <div class="viz-placeholder" data-viz="viz-power-rule"></div>
 `,
@@ -188,10 +213,15 @@ we will ever meet, without returning to the definition.
       content: `
 <h2>Product & Quotient Rules</h2>
 
+<p><strong>Section roadmap.</strong>
+We now tackle the derivative of a product \\(f \\cdot g\\) and a quotient \\(f/g\\).
+These rules are essential whenever functions are multiplied or divided rather than simply added.</p>
+
 <p>
 The sum rule says \\((f + g)' = f' + g'\\). You might hope that \\((fg)' = f'g'\\).
-Unfortunately, that is <strong>wrong</strong>. The correct product rule is more subtle —
-and far more interesting.
+Unfortunately, that is <strong>wrong</strong>. Consider the simple case \\(f(x) = x\\) and \\(g(x) = x\\):
+the product is \\(x^2\\) with derivative \\(2x\\), but \\(f'g' = 1 \\cdot 1 = 1\\).
+Clearly the "obvious" guess fails. The correct product rule is more subtle, and far more interesting.
 </p>
 
 <div class="definition">
@@ -226,6 +256,13 @@ and far more interesting.
 </div>
 
 <h3>The Quotient Rule</h3>
+
+<p>
+The product rule handles multiplication. What about division?
+If \\(h(x) = f(x)/g(x)\\), we need a rule for that too.
+We could rewrite \\(h = f \\cdot g^{-1}\\) and combine the product rule with the chain rule (which we have not seen yet),
+but it is cleaner to state the quotient rule directly.
+</p>
 
 <div class="definition">
   <strong>Quotient Rule</strong><br>
@@ -262,6 +299,13 @@ and far more interesting.
   \\]
   This confirms the power rule for negative exponents.
 </div>
+
+<p>
+<strong>Looking ahead.</strong>
+We can now differentiate sums, products, and quotients of functions.
+But what about a function <em>inside</em> another function, like \\(\\sin(x^2)\\) or \\((3x+1)^5\\)?
+These are <em>compositions</em>, and the next section introduces the chain rule to handle them.
+</p>
 
 <div class="viz-placeholder" data-viz="viz-product-rule"></div>
 `,
@@ -364,10 +408,14 @@ and far more interesting.
       content: `
 <h2>The Chain Rule</h2>
 
+<p><strong>Section roadmap.</strong>
+The power rule, product rule, and quotient rule cover sums, scalar multiples, products, and quotients.
+But many important functions are <em>compositions</em>, one function plugged into another.
+The chain rule is the master key that unlocks all such functions, and it is used more often than every other rule combined.</p>
+
 <p>
 The <strong>chain rule</strong> is arguably the single most important differentiation rule.
-It tells us how to differentiate a <em>composition</em> \\(f(g(x))\\) —
-a function inside another function.
+It tells us how to differentiate a <em>composition</em> \\(f(g(x))\\), a function inside another function.
 </p>
 
 <div class="definition">
@@ -438,6 +486,12 @@ it is an excellent mnemonic and hints at deeper ideas about differentials.
 </div>
 
 <div class="viz-placeholder" data-viz="viz-chain-rule"></div>
+
+<p>
+<strong>Looking ahead.</strong>
+With the chain rule in hand, we are ready to differentiate <em>any</em> composition.
+The next two sections apply all four rules to two important function families: trigonometric functions and exponential/logarithmic functions.
+</p>
 
 <div class="viz-placeholder" data-viz="viz-chain-peeling"></div>
 `,
@@ -578,9 +632,14 @@ it is an excellent mnemonic and hints at deeper ideas about differentials.
       content: `
 <h2>Derivatives of Trigonometric Functions</h2>
 
+<p><strong>Section roadmap.</strong>
+We now apply our differentiation rules to the six trigonometric functions.
+We derive \\(\\frac{d}{dx}[\\sin x] = \\cos x\\) from the limit definition, then use the quotient rule to obtain all four remaining trig derivatives.
+These formulas, combined with the chain rule, let us differentiate any expression involving trig functions.</p>
+
 <p>
 The six trigonometric functions have elegant derivative formulas.
-The most fundamental pair — sine and cosine — give rise to all the others
+The most fundamental pair, sine and cosine, give rise to all the others
 through the quotient rule and identities.
 </p>
 
@@ -676,6 +735,12 @@ Since \\(\\tan x = \\frac{\\sin x}{\\cos x}\\):
   </tbody>
 </table>
 
+<p>
+<strong>Looking ahead.</strong>
+Trigonometric functions are now in our toolkit. The one remaining family of elementary functions is
+exponentials and logarithms. The next section completes our differentiation arsenal.
+</p>
+
 <div class="viz-placeholder" data-viz="viz-trig-derivatives"></div>
 `,
       visualizations: [
@@ -762,6 +827,11 @@ Since \\(\\tan x = \\frac{\\sin x}{\\cos x}\\):
       title: '5. Derivatives of Exp & Log',
       content: `
 <h2>Derivatives of Exponential & Logarithmic Functions</h2>
+
+<p><strong>Section roadmap.</strong>
+We complete our differentiation toolkit with exponential and logarithmic functions.
+We show that \\(e^x\\) is its own derivative, derive the formulas for general bases \\(a^x\\) and \\(\\log_a x\\),
+and introduce logarithmic differentiation as a technique for especially complicated expressions.</p>
 
 <p>
 The natural exponential function \\(e^x\\) is extraordinary:
@@ -872,6 +942,17 @@ then solve for \\(y'\\).
     </tr>
   </tbody>
 </table>
+
+<div class="env-block intuition">
+<strong>Chapter complete.</strong>
+With the power, product, quotient, and chain rules, plus the derivative formulas for trig, exponential,
+and logarithmic functions, we can now differentiate virtually any elementary function.
+But knowing how to compute a derivative is only half the story.
+What can we actually <em>do</em> with it?
+In the next chapter, we put derivatives to work: the first- and second-derivative tests will reveal where
+a function increases, decreases, curves upward, curves downward, and attains its extreme values,
+giving us a complete picture of a curve's shape.
+</div>
 
 <div class="viz-placeholder" data-viz="viz-exp-derivative"></div>
 

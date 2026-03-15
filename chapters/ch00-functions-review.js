@@ -10,6 +10,14 @@ window.CHAPTERS.push({
             id: 'ch00-sec01',
             title: 'Polynomials & Rational Functions',
             content: `<h2>Polynomials & Rational Functions</h2>
+
+                <div class="env-block intuition">
+                    <div class="env-title">Why Start with Functions?</div>
+                    <div class="env-body"><p>Every concept in calculus, from limits to derivatives to integrals, is an operation performed on a <strong>function</strong>. Before we can ask "what is the derivative of \\(f\\)?" or "what is \\(\\int f(x)\\,dx\\)?", we need fluency with the basic function families: polynomials, rational functions, trigonometric functions, exponentials, and logarithms. This chapter builds that fluency so that when calculus proper begins, you can focus on the new ideas rather than struggling with the functions themselves.</p></div>
+                </div>
+
+                <p>This section covers polynomials and rational functions, the algebraic workhorses of calculus. You will encounter polynomials in Taylor approximations, rational functions in partial-fraction integration, and their asymptotic behavior in limit computations.</p>
+
                 <p>Polynomials are the most fundamental building blocks in mathematics. They arise in physics, engineering, economics, and virtually every application of calculus. Understanding their behavior is essential before moving into limits and derivatives.</p>
 
                 <div class="env-block definition">
@@ -51,6 +59,8 @@ window.CHAPTERS.push({
                 <div class="viz-placeholder" data-viz="viz-poly-explorer"></div>
 
                 <h3>Rational Functions</h3>
+                <p>Polynomials are defined everywhere, but many real-world situations involve quotients of polynomials, which introduce new phenomena: points where the function is undefined, and asymptotic behavior as the function blows up or flattens out. These features make rational functions a natural setting for studying limits.</p>
+
                 <div class="env-block definition">
                     <div class="env-title">Definition (Rational Function)</div>
                     <div class="env-body"><p>A <strong>rational function</strong> is a ratio of two polynomials:
@@ -248,7 +258,9 @@ window.CHAPTERS.push({
             id: 'ch00-sec02',
             title: 'Trigonometric Functions',
             content: `<h2>Trigonometric Functions</h2>
-                <p>Trigonometric functions model periodic phenomena: oscillations, waves, rotations, and cycles. They are indispensable in calculus, especially for integration techniques, Taylor series, and differential equations.</p>
+                <p>Having seen polynomials and rational functions, which are built from algebraic operations, we turn to a fundamentally different family: trigonometric functions. Unlike polynomials, these functions are <strong>periodic</strong>, repeating their values in regular cycles.</p>
+
+                <p>Trigonometric functions model periodic phenomena: oscillations, waves, rotations, and cycles. They are indispensable in calculus, especially for integration techniques, Taylor series, and differential equations. This section reviews the unit-circle definitions, the key identities you will need repeatedly, and the inverse trigonometric functions that arise when solving equations.</p>
 
                 <div class="env-block definition">
                     <div class="env-title">Definition (Unit Circle Approach)</div>
@@ -296,6 +308,8 @@ window.CHAPTERS.push({
                 <div class="viz-placeholder" data-viz="viz-unit-circle"></div>
 
                 <h3>Inverse Trigonometric Functions</h3>
+                <p>In calculus, we often need to "undo" a trigonometric function: given a value like \\(\\sin\\theta = 0.5\\), what is \\(\\theta\\)? This requires inverse trigonometric functions, which also appear as the results of important integrals (for example, \\(\\int \\frac{1}{1+x^2}\\,dx = \\arctan x + C\\)).</p>
+
                 <div class="env-block definition">
                     <div class="env-title">Definition (Inverse Trig)</div>
                     <div class="env-body"><p>Since trig functions are not one-to-one, we restrict their domains to define inverses:
@@ -502,7 +516,9 @@ window.CHAPTERS.push({
             id: 'ch00-sec03',
             title: 'Exponential & Logarithmic Functions',
             content: `<h2>Exponential & Logarithmic Functions</h2>
-                <p>Exponential growth and decay appear everywhere: population models, radioactive decay, compound interest, and information theory. The exponential function \\(e^x\\) holds a unique place in calculus because it is its own derivative.</p>
+                <p>Polynomials grow at a rate determined by their degree, and trigonometric functions oscillate within fixed bounds. Exponential functions do something qualitatively different: they grow (or decay) at a rate proportional to their current value. This makes them the language of continuous growth and the cornerstone of differential equations.</p>
+
+                <p>This section reviews exponential and logarithmic functions, their algebraic laws, and the special role of the number \\(e\\). In calculus, the natural exponential \\(e^x\\) and natural logarithm \\(\\ln x\\) will appear constantly, from differentiation rules to integration techniques to series expansions.</p>
 
                 <div class="env-block definition">
                     <div class="env-title">Definition (Exponential Function)</div>
@@ -521,6 +537,8 @@ window.CHAPTERS.push({
                     <li>\\(b^0 = 1\\), \\(b^1 = b\\)</li>
                 </ul>
 
+                <p>Among all possible bases, one stands out as uniquely important for calculus. The question is: is there a base \\(b\\) such that the derivative of \\(b^x\\) is simply \\(b^x\\) itself, with no extra constant factor? The answer is yes, and that base is \\(e\\).</p>
+
                 <div class="env-block definition">
                     <div class="env-title">Definition (The Number \\(e\\))</div>
                     <div class="env-body"><p>The number \\(e \\approx 2.71828\\) is defined as
@@ -536,6 +554,8 @@ window.CHAPTERS.push({
                 <div class="viz-placeholder" data-viz="viz-exp-log"></div>
 
                 <h3>Logarithmic Functions</h3>
+                <p>Exponential functions are strictly monotonic, so they have inverses. These inverses are the logarithmic functions, which convert multiplicative relationships into additive ones. In calculus, the natural logarithm \\(\\ln x\\) will serve as the antiderivative of \\(1/x\\) and the key to differentiating expressions like \\(x^x\\) via logarithmic differentiation.</p>
+
                 <div class="env-block definition">
                     <div class="env-title">Definition (Logarithm)</div>
                     <div class="env-body"><p>The <strong>logarithm</strong> base \\(b\\) is the inverse of \\(b^x\\):
@@ -665,7 +685,9 @@ window.CHAPTERS.push({
             id: 'ch00-sec04',
             title: 'Composition & Inverse Functions',
             content: `<h2>Composition & Inverse Functions</h2>
-                <p>Composition is how we build complex functions from simpler parts. The chain rule &mdash; the most important differentiation technique &mdash; is entirely about derivatives of compositions. Understanding composition and inverses now will pay dividends throughout the course.</p>
+                <p>The previous sections built up a library of basic function families: polynomials, rational functions, trig, exponentials, and logarithms. But most functions you encounter in practice are not one of these basic types; rather, they are built by plugging one function into another. This section formalizes that idea.</p>
+
+                <p>Composition is how we build complex functions from simpler parts. The chain rule, the most important differentiation technique, is entirely about derivatives of compositions. Understanding composition and inverses now will pay dividends throughout the course. We also revisit inverse functions in a general setting, unifying the specific inverses (\\(\\arcsin\\), \\(\\ln\\), etc.) we have already seen.</p>
 
                 <div class="env-block definition">
                     <div class="env-title">Definition (Composition)</div>
@@ -688,6 +710,8 @@ window.CHAPTERS.push({
                 </div>
 
                 <h3>Inverse Functions</h3>
+                <p>Composition naturally leads to the question of "undoing" a function: if \\(f\\) maps \\(x\\) to \\(y\\), can we find a function that maps \\(y\\) back to \\(x\\)? This is the idea behind inverse functions. In calculus, the inverse function theorem will give a powerful formula for the derivative of \\(f^{-1}\\) in terms of the derivative of \\(f\\).</p>
+
                 <div class="env-block definition">
                     <div class="env-title">Definition (Inverse Function)</div>
                     <div class="env-body"><p>A function \\(f\\) is <strong>one-to-one</strong> (injective) if \\(f(a) = f(b) \\implies a = b\\). If \\(f\\) is one-to-one and onto a set \\(B\\), then the <strong>inverse</strong> \\(f^{-1}: B \\to A\\) satisfies
@@ -837,7 +861,11 @@ window.CHAPTERS.push({
             id: 'ch00-sec05',
             title: 'Function Transformations',
             content: `<h2>Function Transformations</h2>
-                <p>Given a base function \\(y = f(x)\\), we can systematically transform it by shifting, stretching, compressing, and reflecting. Mastering these transformations lets you quickly sketch graphs and understand how parameters affect function behavior &mdash; skills you will use constantly in calculus.</p>
+                <p>We now know how to build functions by composing basic families and how to invert them. The final tool in our pre-calculus toolkit is understanding how simple algebraic changes to a function's formula, such as adding a constant or multiplying the input, correspond to geometric changes in its graph.</p>
+
+                <p>This section catalogs the standard transformations (shifts, stretches, reflections) and introduces even/odd symmetry. These ideas matter in calculus for sketching derivatives, recognizing symmetry in integrals (e.g., \\(\\int_{-a}^{a} f(x)\\,dx = 0\\) when \\(f\\) is odd), and understanding how parameter changes propagate through the chain rule.</p>
+
+                <p>Given a base function \\(y = f(x)\\), we can systematically transform it by shifting, stretching, compressing, and reflecting. Mastering these transformations lets you quickly sketch graphs and understand how parameters affect function behavior, skills you will use constantly in calculus.</p>
 
                 <div class="env-block definition">
                     <div class="env-title">Summary of Transformations</div>
@@ -874,6 +902,8 @@ window.CHAPTERS.push({
                 <div class="viz-placeholder" data-viz="viz-transformations"></div>
 
                 <h3>Even and Odd Functions</h3>
+                <p>Among all transformations, the reflections \\(f(-x)\\) and \\(-f(x)\\) have a special status: they reveal symmetry. Recognizing symmetry simplifies many calculus problems, most notably definite integrals over symmetric intervals.</p>
+
                 <div class="env-block definition">
                     <div class="env-title">Definition</div>
                     <div class="env-body"><p>A function \\(f\\) is <strong>even</strong> if \\(f(-x) = f(x)\\) for all \\(x\\) (symmetric about the \\(y\\)-axis). It is <strong>odd</strong> if \\(f(-x) = -f(x)\\) for all \\(x\\) (symmetric about the origin).</p></div>
@@ -896,6 +926,11 @@ window.CHAPTERS.push({
                 <div class="env-block warning">
                     <div class="env-title">Warning</div>
                     <div class="env-body"><p>Order of transformations matters! Applying a vertical stretch before a vertical shift gives a different result than shift-then-stretch. Always read transformations from the equation: inner operations first (closest to \\(x\\)), outer operations last.</p></div>
+                </div>
+
+                <div class="env-block intuition">
+                    <div class="env-title">Looking Ahead: Limits</div>
+                    <div class="env-body"><p>We now have a rich library of functions: polynomials, rational functions, trigonometric functions, exponentials, logarithms, and ways to combine them through composition, inversion, and transformation. With this toolkit in hand, we can ask the central question that launches calculus: <strong>what happens to \\(f(x)\\) as \\(x\\) approaches a particular value?</strong> This is the concept of a <em>limit</em>. In the next chapter, we develop both the intuitive idea and the precise \\(\\varepsilon\\)-\\(\\delta\\) definition, then establish the limit laws and the squeeze theorem that make limits computable for all the function families we have just reviewed.</p></div>
                 </div>`,
 
             visualizations: [

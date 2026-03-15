@@ -12,7 +12,13 @@ window.CHAPTERS.push({
             id: 'ch09-sec01',
             title: 'Area Problem & Sigma Notation',
             content: `
+<div class="env-block intuition">
+<strong>The Big Picture.</strong> In Chapter 8 we learned to reverse differentiation: given \\(f'\\), find \\(f\\). Now we approach integration from a completely different angle, one that has nothing to do with derivatives at all. Instead, we ask a purely geometric question: <em>what is the area under a curve?</em> We will approximate this area with rectangles (Riemann sums), then make the approximation exact by taking a limit. Along the way we will develop the formal definition of the definite integral, establish its key properties, and learn practical numerical methods for computing it.
+</div>
+
 <h2>1 &mdash; Area Problem &amp; Sigma Notation</h2>
+
+<p>In this section we set the stage for integration by revisiting the ancient area problem and equipping ourselves with sigma notation, the compact language of summation. By the end you will be able to write area approximations as concise sums and evaluate them using closed-form summation formulas.</p>
 
 <h3>1.1 The Area Problem</h3>
 
@@ -189,6 +195,8 @@ window.CHAPTERS.push({
             title: 'Riemann Sums',
             content: `
 <h2>2 &mdash; Riemann Sums</h2>
+
+<p>In Section 1 we approximated area using equal-width rectangles with right endpoints. Now we generalize: the partition need not be uniform, and the sample point in each subinterval can be chosen freely. This flexibility leads to the concept of a <strong>Riemann sum</strong>, the central building block of integration theory. We also introduce upper and lower sums, which provide guaranteed bounds on the true area from above and below.</p>
 
 <h3>2.1 Partitions</h3>
 
@@ -413,6 +421,8 @@ window.CHAPTERS.push({
             content: `
 <h2>3 &mdash; The Definite Integral</h2>
 
+<p>We have seen that Riemann sums approximate area, and that finer partitions yield better approximations. It is time to take the limit and make the approximation exact. In this section we give the formal definition of the <strong>definite integral</strong>, state the key existence theorems that tell us which functions are integrable, and interpret the integral geometrically as signed area. This definition transforms an intuitive idea into a precise mathematical object.</p>
+
 <h3>3.1 Definition</h3>
 
 <div class="definition">
@@ -602,6 +612,8 @@ then \\(f\\) is <strong>Riemann integrable</strong> on \\([a, b]\\) and we write
             title: 'Properties of Definite Integrals',
             content: `
 <h2>4 &mdash; Properties of Definite Integrals</h2>
+
+<p>Now that we have a rigorous definition, we develop the algebraic and analytic properties that make the definite integral a powerful tool. Linearity lets us break complicated integrands apart; additivity over intervals lets us split or combine regions; and comparison properties let us estimate integrals even when we cannot compute them exactly. These properties mirror the summation rules from Section 1, which is no coincidence: the integral inherits them from the underlying Riemann sums.</p>
 
 <h3>4.1 Linearity</h3>
 
@@ -828,6 +840,8 @@ regardless of the ordering of \\(a\\), \\(b\\), \\(c\\).
             content: `
 <h2>5 &mdash; Numerical Integration</h2>
 
+<p>So far we have defined the definite integral as a limit and established its properties, but we have not yet developed a general method for <em>computing</em> integrals in closed form (that comes in Chapter 10 with the Fundamental Theorem of Calculus). In the meantime, and even afterward for integrands with no elementary antiderivative, we need reliable numerical approximation methods. This section presents two workhorses of numerical integration: the trapezoid rule and Simpson's rule.</p>
+
 <h3>5.1 Why Numerical Methods?</h3>
 
 <p>Many integrals cannot be evaluated in closed form. Functions like \\(e^{-x^2}\\), \\(\\sin(x^2)\\), or \\(\\sqrt{1 + x^3}\\) do not have elementary antiderivatives. Even when an antiderivative exists, it may be impractical to compute. <strong>Numerical integration</strong> (or <strong>numerical quadrature</strong>) provides systematic ways to approximate definite integrals to any desired accuracy.</p>
@@ -906,6 +920,10 @@ regardless of the ordering of \\(a\\), \\(b\\), \\(c\\).
 <td style="text-align:center;padding:6px;">16&times;</td>
 </tr>
 </table>
+
+<div class="env-block intuition">
+<strong>Looking Ahead.</strong> We now have two seemingly unrelated concepts: antiderivatives (reversing differentiation, from Chapter 8) and definite integrals (computing area via limits of Riemann sums, from this chapter). One is an algebraic operation on functions; the other is a geometric quantity defined by a limiting process. The next chapter reveals the stunning connection between them: the <strong>Fundamental Theorem of Calculus</strong>, which shows that these two ideas are, in fact, two sides of the same coin.
+</div>
 `,
             visualizations: [
                 {

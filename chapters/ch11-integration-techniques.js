@@ -10,7 +10,15 @@ window.CHAPTERS.push({
       id: 'ch11-sec01',
       title: '1. u-Substitution',
       content: `
+<div class="env-block intuition">
+<strong>From the FTC to Technique.</strong> The Fundamental Theorem of Calculus (Chapter 10) reduces every definite integral to a single task: find an antiderivative. But most functions that arise in practice do not have antiderivatives we can write down by inspection. This chapter develops three powerful techniques, substitution, integration by parts, and partial fractions, that vastly expand the class of integrals we can evaluate. Each technique reverses a familiar differentiation rule, turning the problem of integration into a structured, systematic process.
+</div>
+
 <h2>u-Substitution — Reversing the Chain Rule</h2>
+
+<div class="env-block intuition">
+<strong>Section Roadmap.</strong> We begin with the most frequently used integration technique. The chain rule tells us how to differentiate a composition \\(F(g(x))\\). Reading that rule backwards gives us <em>u-substitution</em>, a method for simplifying integrals whose integrands contain a function and its derivative nested together. We will cover the mechanics for both indefinite and definite integrals, then build intuition for recognizing when substitution applies.
+</div>
 
 <p>
 The chain rule tells us \\(\\frac{d}{dx}[F(g(x))] = F'(g(x))\\,g'(x)\\). Reading this in reverse gives us the most fundamental integration technique: <strong>u-substitution</strong>.
@@ -428,6 +436,10 @@ The chain rule tells us \\(\\frac{d}{dx}[F(g(x))] = F'(g(x))\\,g'(x)\\). Reading
       id: 'ch11-sec02',
       title: '2. Integration by Parts',
       content: `
+<div class="env-block intuition">
+<strong>From Compositions to Products.</strong> Substitution handles integrands built from compositions (a function inside another function). But what about integrands that are <em>products</em> of two unrelated functions, like \\(x\\,e^x\\) or \\(x^2\\sin x\\)? No substitution will simplify these, because neither factor is the derivative of the other. We need a new tool, one that reverses the <em>product rule</em> instead of the chain rule. That tool is integration by parts.
+</div>
+
 <h2>Integration by Parts — The Product Rule in Reverse</h2>
 
 <p>
@@ -661,6 +673,10 @@ When \\(u\\) is a polynomial and \\(dv\\) involves \\(e^x\\), \\(\\sin x\\), or 
       id: 'ch11-sec03',
       title: '3. Trigonometric Integrals',
       content: `
+<div class="env-block intuition">
+<strong>Connecting Back.</strong> Substitution and integration by parts are general-purpose tools. In this section, we focus on a specific but important family of integrands: products and powers of trigonometric functions. These arise naturally in Fourier analysis, physics (wave equations, oscillations), and as intermediate results when applying the techniques from the previous two sections. The strategies here combine substitution with trigonometric identities you already know from precalculus.
+</div>
+
 <h2>Trigonometric Integrals</h2>
 
 <p>
@@ -878,6 +894,10 @@ Integrals involving products and powers of trigonometric functions appear freque
       id: 'ch11-sec04',
       title: '4. Trigonometric Substitution',
       content: `
+<div class="env-block intuition">
+<strong>When Algebra Meets Geometry.</strong> The previous section handled integrands that were already expressed as products of trig functions. Now we reverse the idea: given an algebraic integrand containing a square root like \\(\\sqrt{a^2 - x^2}\\), we <em>introduce</em> trigonometric functions via a substitution to exploit Pythagorean identities. This is u-substitution in reverse, replacing the algebraic variable \\(x\\) with a trigonometric expression. The geometric picture (a right triangle) guides the choice every time.
+</div>
+
 <h2>Trigonometric Substitution</h2>
 
 <p>
@@ -1167,6 +1187,10 @@ When the expression under the root is a general quadratic \\(ax^2 + bx + c\\), c
       id: 'ch11-sec05',
       title: '5. Partial Fractions',
       content: `
+<div class="env-block intuition">
+<strong>The Last Major Technique.</strong> We can now handle compositions (substitution), products (integration by parts), and trigonometric expressions (trig integrals and trig substitution). One large, important class of functions remains: <em>rational functions</em>, ratios of polynomials. Partial fraction decomposition is an algebraic technique that breaks any rational function into a sum of simple fractions, each of which integrates to a logarithm or an arctangent. With this tool in hand, every rational function becomes integrable in closed form.
+</div>
+
 <h2>Partial Fraction Decomposition</h2>
 
 <p>
@@ -1279,6 +1303,10 @@ The method of <strong>partial fractions</strong> allows us to integrate any rati
 
 <div class="warning">
   <strong>Common Mistake:</strong> For repeated factors like \\((x+1)^3\\), you need <em>three</em> terms: \\(\\frac{A}{x+1} + \\frac{B}{(x+1)^2} + \\frac{C}{(x+1)^3}\\). Forgetting the intermediate powers gives wrong coefficients.
+</div>
+
+<div class="env-block intuition">
+<strong>Looking Ahead.</strong> With substitution, integration by parts, trigonometric techniques, and partial fractions, we can now evaluate a wide range of integrals. The next chapter puts integration to work: computing areas between curves, volumes of solids of revolution, and arc lengths of curves. These geometric applications are where the power of the techniques developed here becomes most visible.
 </div>
 `,
       visualizations: [

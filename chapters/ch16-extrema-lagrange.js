@@ -10,7 +10,16 @@ window.CHAPTERS.push({
             id: 'local-extrema',
             title: 'Local Extrema',
             content: `
+<div class="env-block intuition">
+<div class="env-label">From Derivatives to Optimization</div>
+In single-variable calculus, we found extrema by setting \\(f'(x) = 0\\) and checking the sign of \\(f''(x)\\). With the partial derivatives and gradients developed in Chapter 15, we can now do the same for functions of several variables: set \\(\\nabla f = \\mathbf{0}\\) and examine second-order information via the Hessian matrix. But real-world optimization often involves <strong>constraints</strong> (e.g., maximize area subject to a fixed perimeter, or minimize cost subject to a production target), which requires the powerful technique of <strong>Lagrange multipliers</strong>. This chapter builds the complete toolkit for multivariable optimization, from unconstrained critical-point analysis to constrained problems with multiple constraints.
+</div>
+
 <h2>1 &middot; Local Extrema</h2>
+
+<p>
+We begin with the most fundamental question: given a function \\(f(x,y)\\), where are its peaks, valleys, and saddle points? This section establishes the first-order necessary condition (the gradient vanishes) and introduces critical points, the candidates for local extrema. In Section 2 we will develop the Hessian test to classify these candidates.
+</p>
 
 <div class="env-block definition">
 <div class="env-label">Definition &mdash; Local Extremum</div>
@@ -178,7 +187,7 @@ Not every critical point is an extremum. The classic example is \\(f(x,y) = x^2 
 <h2>2 &middot; The Hessian Test</h2>
 
 <p>
-The gradient tells us <em>where</em> to look; the <strong>Hessian matrix</strong> tells us <em>what</em> we have found.
+In the previous section, we found critical points by solving \\(\\nabla f = \\mathbf{0}\\), but we could not always determine whether a critical point is a local minimum, local maximum, or saddle point. The gradient tells us <em>where</em> to look; the <strong>Hessian matrix</strong> tells us <em>what</em> we have found. Just as the single-variable second derivative test uses \\(f''(a)\\) to classify a critical point, the multivariable second derivative test uses the matrix of all second partial derivatives. This section covers the Hessian, its determinant-based classification in two variables, and the general definiteness criterion for higher dimensions.
 </p>
 
 <div class="env-block definition">
@@ -352,6 +361,10 @@ At \\((1,1)\\): \\(D = (6)(6) - (-3)^2 = 27 > 0\\) and \\(f_{xx} = 6 > 0\\). <st
             title: 'Absolute Extrema',
             content: `
 <h2>3 &middot; Absolute Extrema</h2>
+
+<p>
+So far we have classified <em>local</em> extrema using the gradient and the Hessian. In many applications, however, we need the <strong>absolute</strong> (global) maximum or minimum of a function over a specific region. For instance, an engineer might need the maximum stress across an entire component, not just near one point. This section presents the multivariable Extreme Value Theorem and the systematic strategy for finding absolute extrema on a closed bounded region: check the interior critical points, then check the boundary, then compare.
+</p>
 
 <div class="env-block theorem">
 <div class="env-label">Theorem &mdash; Extreme Value Theorem (Multivariable)</div>
@@ -547,7 +560,7 @@ Do not forget the boundary! In many optimization problems, the extreme value act
 <h2>4 &middot; Lagrange Multipliers</h2>
 
 <p>
-We now turn to one of the most elegant ideas in optimization: how to find extrema of a function subject to a <strong>constraint</strong>.
+The absolute extrema strategy of Section 3 works well when the feasible region is a simple closed domain. But what if the constraint is not a region boundary, but an equation like \\(g(x,y) = c\\)? For example, maximizing a utility function subject to a budget constraint, or minimizing energy subject to a physical law. In such cases, we cannot simply set \\(\\nabla f = \\mathbf{0}\\), because the extremum may not be a critical point of \\(f\\) in the unconstrained sense. We now turn to one of the most elegant ideas in optimization: how to find extrema of a function subject to a <strong>constraint</strong>. The key insight is geometric: at a constrained extremum, the gradients of \\(f\\) and \\(g\\) must be parallel.
 </p>
 
 <div class="env-block definition">
@@ -756,7 +769,7 @@ at each constrained extremum (provided the gradients \\(\\nabla g_i\\) are linea
 <h2>5 &middot; Constrained Optimization Examples</h2>
 
 <p>
-In this section we work through several complete examples to illustrate the variety of constrained optimization problems.
+With the theory of Lagrange multipliers from Section 4 in hand, we now apply it to a range of problems: optimizing on ellipses, finding shortest distances to curves, and handling multiple constraints simultaneously. These examples illustrate the full workflow, from setting up the Lagrangian to interpreting the multiplier \\(\\lambda\\) as a sensitivity measure.
 </p>
 
 <div class="env-block example">
@@ -814,6 +827,11 @@ This is fundamental in economics (shadow prices), engineering (sensitivity analy
 <div class="env-block warning">
 <div class="env-label">Warning &mdash; Checking \\(\\nabla g \\neq \\mathbf{0}\\)</div>
 The Lagrange multiplier theorem requires \\(\\nabla g \\neq \\mathbf{0}\\) at the extremum (this is the <strong>constraint qualification</strong>). If \\(\\nabla g = \\mathbf{0}\\) at a feasible point, that point must be checked separately &mdash; it is a singular point of the constraint set.
+</div>
+
+<div class="env-block intuition">
+<div class="env-label">Looking Ahead</div>
+In this chapter, we extended the optimization techniques of single-variable calculus to functions of several variables: critical points via \\(\\nabla f = \\mathbf{0}\\), classification via the Hessian, absolute extrema on closed regions, and constrained optimization via Lagrange multipliers. This completes our study of multivariable differentiation and its applications. The next chapter does the same for <strong>integration</strong>: double and triple integrals compute volumes, masses, centers of mass, and other quantities that single integrals cannot handle. Just as partial derivatives generalized \\(f'(x)\\), multiple integrals will generalize \\(\\int_a^b f(x)\\,dx\\) to higher dimensions.
 </div>
 
 <div class="viz-container" data-viz="constrained-ellipse">

@@ -13,7 +13,17 @@ window.CHAPTERS.push({
       id: 'ch05-sec01',
       title: '1. Increasing/Decreasing & First Derivative Test',
       content: `
+<div class="env-block intuition">
+<strong>From Differentiation Rules to Curve Analysis.</strong>
+In Chapter 4, we built a powerful toolkit: the power, product, quotient, and chain rules let us differentiate virtually any function we encounter. This chapter puts those tools to work. The first derivative reveals where a function increases or decreases, and the second derivative reveals concavity. Together, they let us sketch accurate graphs without plotting points. By the end of this chapter, you will be able to read a formula and see its shape.
+</div>
+
 <h2>Increasing/Decreasing & First Derivative Test</h2>
+
+<div class="env-block intuition">
+<strong>Section Roadmap.</strong>
+We begin with the most direct application of the derivative: determining where a function goes up and where it goes down. We will define critical points, then state the First Derivative Test, which classifies each critical point as a local maximum, local minimum, or neither.
+</div>
 
 <p>
 The derivative tells us about the <em>rate of change</em> of a function. When this rate is positive,
@@ -277,6 +287,15 @@ To find intervals of increase and decrease:
       content: `
 <h2>Concavity & Second Derivative Test</h2>
 
+<div class="env-block intuition">
+<strong>Section Roadmap.</strong>
+The first derivative told us <em>where</em> a function rises and falls. Now we ask a subtler question: <em>how</em> does it rise or fall? A function can increase while bending upward (like a rocket gaining speed) or increase while bending downward (like a car approaching its top speed). The second derivative captures this distinction, and the Second Derivative Test gives us a quick way to classify critical points without building a full sign chart.
+</div>
+
+<p>
+<strong>Connection to Section 1.</strong> Recall that the First Derivative Test required us to check the sign of \\(f'\\) on both sides of a critical point. The Second Derivative Test offers a shortcut: if \\(f'(c) = 0\\), we can often determine the nature of the critical point by evaluating \\(f''(c)\\) alone.
+</p>
+
 <p>
 The first derivative tells us whether a function is increasing or decreasing. The <strong>second derivative</strong>
 tells us <em>how</em> it increases or decreases — whether the curve bends upward or downward.
@@ -493,6 +512,15 @@ tells us <em>how</em> it increases or decreases — whether the curve bends upwa
       title: '3. Inflection Points',
       content: `
 <h2>Inflection Points</h2>
+
+<div class="env-block intuition">
+<strong>Section Roadmap.</strong>
+In Section 2 we studied concavity on entire intervals. Now we zoom in on the boundary between concave-up and concave-down regions. These boundaries, called inflection points, are where the curvature direction reverses. Identifying them completes our toolkit for describing a curve's shape.
+</div>
+
+<p>
+<strong>Connection to Section 2.</strong> The concavity test told us that \\(f'' > 0\\) means concave up and \\(f'' < 0\\) means concave down. An inflection point is precisely where \\(f''\\) changes sign, transitioning the curve from one type of bending to the other.
+</p>
 
 <p>
 An inflection point is where the concavity of a function changes. These are among the most
@@ -716,6 +744,15 @@ important features of a curve, marking the transition between "bending up" and "
       title: '4. Curve Sketching Strategy',
       content: `
 <h2>Curve Sketching Strategy</h2>
+
+<div class="env-block intuition">
+<strong>Section Roadmap.</strong>
+Sections 1 through 3 gave us the individual tools: the first derivative for monotonicity and local extrema, the second derivative for concavity, and inflection points for curvature transitions. This section brings everything together into a systematic procedure. Given any function, you will be able to produce an accurate sketch by following a structured checklist.
+</div>
+
+<p>
+<strong>Why this matters.</strong> Being able to sketch a curve by hand is not just an exercise; it builds the geometric intuition that underpins optimization, modeling, and applied analysis. Every time you look at a formula and "see" its shape, you are applying the ideas from this section.
+</p>
 
 <p>
 We now have all the tools to sketch the graph of a function without a graphing calculator.
@@ -1022,6 +1059,15 @@ Here is the systematic procedure that combines everything from this chapter.
       content: `
 <h2>The Mean Value Theorem</h2>
 
+<div class="env-block intuition">
+<strong>Section Roadmap.</strong>
+We close this chapter with the theoretical backbone behind everything we have done. The Increasing/Decreasing Test in Section 1 relied on the Mean Value Theorem (MVT), and we deferred its proof until now. The MVT connects the local information given by \\(f'(c)\\) at a single point to the global behavior of \\(f\\) over an interval. It is the reason we can draw conclusions about a function's shape from its derivative.
+</div>
+
+<p>
+<strong>Connection to earlier sections.</strong> In Section 1, the proof that \\(f' > 0\\) implies \\(f\\) is increasing invoked the MVT. In Section 4, we used these monotonicity results as part of our curve-sketching checklist. Now we prove the MVT itself, completing the logical foundation of the chapter.
+</p>
+
 <p>
 The Mean Value Theorem (MVT) is one of the most important theorems in calculus. It says that
 for a "nice enough" function, there is always a point where the instantaneous rate of change
@@ -1112,6 +1158,11 @@ equals the average rate of change.
   on \\((a, b)\\). If either fails, the conclusion may not hold. For instance, \\(f(x) = |x|\\) on \\([-1, 1]\\)
   has \\(f(-1) = f(1) = 1\\), but there is no \\(c\\) where \\(f'(c) = 0\\) because \\(f\\) is not differentiable at 0
   and \\(f' = \\pm 1\\) elsewhere.
+</div>
+
+<div class="env-block intuition">
+<strong>Looking Ahead: From Shape to Optimization.</strong>
+Throughout this chapter, we have learned to read a function's shape from its derivatives: where it rises and falls, where it bends, and where it turns around. Understanding a function's shape naturally leads to finding its peaks and valleys, which is the heart of optimization. In Chapter 6, we will apply these curve-sketching ideas to solve practical problems: finding the maximum area, the minimum cost, or the optimal design. The critical-point analysis and derivative tests you have mastered here will be the primary tools for those optimization problems.
 </div>
 `,
       visualizations: [

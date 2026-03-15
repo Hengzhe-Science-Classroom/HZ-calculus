@@ -12,6 +12,15 @@ window.CHAPTERS.push({
             content: `
 <h2>1 &middot; Functions of Several Variables</h2>
 
+<div class="env-block intuition">
+<div class="env-label">Chapter Opening &mdash; From One Variable to Many</div>
+Chapters 0&ndash;14 studied functions of one variable: a single input \\(x\\), a single output \\(f(x)\\). But most real-world quantities depend on multiple inputs. Temperature depends on position \\((x,y,z)\\) and time \\(t\\). A firm's profit depends on price, quantity, and advertising budget. The altitude of terrain depends on latitude and longitude. This chapter extends differentiation to functions \\(f(x,y,\\ldots)\\) of several variables. The key idea is beautifully simple: differentiate with respect to one variable at a time, holding all others constant. These are <strong>partial derivatives</strong>, and they open the door to optimization, approximation, and geometric analysis in higher dimensions.
+</div>
+
+<p>
+<strong>Section roadmap.</strong> We begin by defining multivariable functions and their geometric representations (surfaces, level curves). We then tackle limits and continuity in \\(\\mathbb{R}^n\\), introduce partial derivatives and higher-order derivatives (including Clairaut's theorem), build tangent planes and linear approximations, and culminate with directional derivatives and the gradient vector.
+</p>
+
 <div class="env-block definition">
 <div class="env-label">Definition &mdash; Function of Two Variables</div>
 A <strong>function of two variables</strong> is a rule \\(f\\) that assigns to each ordered pair \\((x,y)\\) in a set \\(D \\subseteq \\mathbb{R}^2\\) a unique real number \\(f(x,y)\\). The set \\(D\\) is the <strong>domain</strong> and the set of all values \\(f(x,y)\\) is the <strong>range</strong>.
@@ -60,6 +69,10 @@ When determining the domain of a multivariable function, we look for all points 
 <div class="env-label">Remark &mdash; Graphs vs. Contour Plots</div>
 A graph \\(z = f(x,y)\\) lives in three dimensions. A contour plot is a two-dimensional visualization that captures the same information by slicing the surface at constant heights. In practice, contour plots are often more informative because they display relative rates of change clearly.
 </div>
+
+<p>
+<strong>Looking ahead.</strong> Now that we can describe and visualize functions of several variables, we need to extend the ideas of limits, continuity, and differentiation to this setting. The next section addresses the first two: what does it mean for a multivariable function to approach a limit, and what new subtleties arise compared to the single-variable case?
+</p>
 `,
             visualizations: [
                 {
@@ -193,6 +206,10 @@ A graph \\(z = f(x,y)\\) lives in three dimensions. A contour plot is a two-dime
             content: `
 <h2>2 &middot; Limits &amp; Continuity in \\(\\mathbb{R}^n\\)</h2>
 
+<p>
+<strong>Motivation.</strong> Before we can differentiate multivariable functions, we need limits, just as in single-variable calculus. But there is a fundamental new difficulty: in one dimension, a point can only be approached from the left or the right. In \\(\\mathbb{R}^2\\), a point \\((a,b)\\) can be approached from infinitely many directions and along curved paths. This makes proving that limits exist (or showing they do not) considerably more delicate.
+</p>
+
 <div class="env-block definition">
 <div class="env-label">Definition &mdash; Limit of a Multivariable Function</div>
 We say \\(\\displaystyle\\lim_{(x,y) \\to (a,b)} f(x,y) = L\\) if for every \\(\\varepsilon > 0\\) there exists \\(\\delta > 0\\) such that
@@ -255,6 +272,10 @@ If the resulting expression converges to \\(L\\) as \\(r \\to 0^+\\) <strong>ind
 <div class="viz-controls" id="path-limits-controls"></div>
 <div class="viz-caption">Explore f(x,y) = xy / (x^2 + y^2) near the origin. Different approach paths give different limits, proving the limit does not exist.</div>
 </div>
+
+<p>
+<strong>Connection to what follows.</strong> With limits and continuity in hand, we are ready for the central concept of this chapter: partial derivatives. Recall that the single-variable derivative is defined as a limit of a difference quotient. We will use exactly the same idea, but applied one variable at a time.
+</p>
 `,
             visualizations: [
                 {
@@ -362,6 +383,10 @@ If the resulting expression converges to \\(L\\) as \\(r \\to 0^+\\) <strong>ind
             content: `
 <h2>3 &middot; Partial Derivatives</h2>
 
+<p>
+<strong>Motivation.</strong> How does a function \\(f(x,y)\\) change when we nudge just one of its inputs? In single-variable calculus, the derivative \\(f'(x)\\) answers this completely. For multivariable functions, we isolate one variable at a time: hold \\(y\\) constant and differentiate with respect to \\(x\\), or hold \\(x\\) constant and differentiate with respect to \\(y\\). Each such derivative is a <strong>partial derivative</strong>, and together they describe how the function responds to changes in each coordinate direction independently.
+</p>
+
 <div class="env-block definition">
 <div class="env-label">Definition &mdash; Partial Derivatives</div>
 Let \\(f(x,y)\\) be defined near \\((a,b)\\). The <strong>partial derivative of \\(f\\) with respect to \\(x\\)</strong> at \\((a,b)\\) is
@@ -419,6 +444,10 @@ Indeed \\(f_{xy} = f_{yx}\\).
 <div class="env-label">Remark</div>
 The notation \\(\\partial f / \\partial x\\) uses a rounded \\(\\partial\\) (called "partial" or "del") to distinguish from the ordinary derivative \\(df/dx\\). The partial symbol reminds us that other variables are being held constant.
 </div>
+
+<p>
+<strong>Looking ahead.</strong> Partial derivatives tell us the slope of the surface in the \\(x\\)- and \\(y\\)-directions. But can we combine them into a single linear approximation, analogous to the tangent line \\(y = f(a) + f'(a)(x-a)\\) from single-variable calculus? Yes: the next section constructs the <strong>tangent plane</strong> and develops the total differential.
+</p>
 `,
             visualizations: [
                 {
@@ -503,6 +532,10 @@ The notation \\(\\partial f / \\partial x\\) uses a rounded \\(\\partial\\) (cal
             content: `
 <h2>4 &middot; Tangent Planes &amp; Linear Approximation</h2>
 
+<p>
+<strong>Motivation.</strong> In single-variable calculus, the tangent line at a point gives the best linear approximation: \\(f(x) \\approx f(a) + f'(a)(x-a)\\). For surfaces \\(z = f(x,y)\\), the analogous object is a <strong>tangent plane</strong> that "just touches" the surface at one point. Building this plane requires both partial derivatives, \\(f_x\\) and \\(f_y\\), combining the directional information from the previous section into a single, powerful approximation tool. This linearization underpins error estimation, Newton's method in higher dimensions, and the theory of differentiability.
+</p>
+
 <div class="env-block definition">
 <div class="env-label">Definition &mdash; Tangent Plane</div>
 If \\(f(x,y)\\) has continuous partial derivatives at \\((a,b)\\), the <strong>tangent plane</strong> to the surface \\(z = f(x,y)\\) at the point \\((a, b, f(a,b))\\) is
@@ -571,6 +604,10 @@ Having both partial derivatives exist at a point does <strong>not</strong> guara
 <div class="viz-controls" id="tangent-plane-controls"></div>
 <div class="viz-caption">The blue curve is a slice of z = f(x,y) at the chosen fixed y-value. The orange line is the tangent from the linearization at the marked point.</div>
 </div>
+
+<p>
+<strong>Looking ahead.</strong> Partial derivatives measure the rate of change along the coordinate axes. But what if we want the rate of change in an <em>arbitrary</em> direction, say northeast on a mountainside? The next section answers this question with <strong>directional derivatives</strong> and packages all the partial derivatives into a single vector, the <strong>gradient</strong>, which points in the direction of steepest ascent.
+</p>
 `,
             visualizations: [
                 {
@@ -656,6 +693,10 @@ Having both partial derivatives exist at a point does <strong>not</strong> guara
             content: `
 <h2>5 &middot; Directional Derivatives &amp; the Gradient</h2>
 
+<p>
+<strong>Motivation.</strong> The partial derivatives \\(f_x\\) and \\(f_y\\) measure the rate of change along the \\(x\\)- and \\(y\\)-axes. But these are just two of infinitely many directions. A hiker does not always walk due east or due north; she might head northeast, or at any angle. The <strong>directional derivative</strong> generalizes partial derivatives to arbitrary directions. Remarkably, all directional derivatives can be computed from a single object, the <strong>gradient vector</strong> \\(\\nabla f\\), which also reveals the direction of steepest ascent and is perpendicular to level curves.
+</p>
+
 <div class="env-block definition">
 <div class="env-label">Definition &mdash; Directional Derivative</div>
 Let \\(f(x,y)\\) be differentiable at \\((a,b)\\) and let \\(\\mathbf{u} = (u_1, u_2)\\) be a <strong>unit vector</strong>. The <strong>directional derivative</strong> of \\(f\\) in the direction \\(\\mathbf{u}\\) is
@@ -738,6 +779,11 @@ For \\(F(x,y,z)\\), the gradient \\(\\nabla F = (F_x, F_y, F_z)\\) is perpendicu
 The ellipsoid \\(x^2 + 2y^2 + 3z^2 = 6\\) can be written as \\(F(x,y,z) = x^2 + 2y^2 + 3z^2\\). Then \\(\\nabla F = (2x, 4y, 6z)\\). At the point \\((1, 1, 1)\\):
 \\[\\nabla F(1,1,1) = (2, 4, 6).\\]
 The tangent plane at \\((1,1,1)\\) is \\(2(x-1) + 4(y-1) + 6(z-1) = 0\\), i.e., \\(x + 2y + 3z = 6\\).
+</div>
+
+<div class="env-block intuition">
+<div class="env-label">Chapter Closing &mdash; What We Have Built</div>
+This chapter extended the core ideas of single-variable calculus to functions of several variables. We learned to visualize multivariable functions through surfaces and contour maps, tackled the subtleties of limits along infinitely many paths, and defined partial derivatives by differentiating one variable at a time. Combining partial derivatives gave us tangent planes (the multivariable analog of tangent lines) and the gradient vector, which encodes the direction and magnitude of steepest ascent. The next chapter puts these tools to work: we will use partial derivatives and gradients to find <strong>maxima and minima</strong> of multivariable functions, including <strong>constrained optimization via Lagrange multipliers</strong>, where we optimize a function subject to a constraint.
 </div>
 `,
             visualizations: [

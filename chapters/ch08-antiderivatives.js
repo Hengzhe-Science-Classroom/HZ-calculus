@@ -11,7 +11,13 @@ window.CHAPTERS.push({
             id: 'sec01-antiderivatives',
             title: 'Antiderivatives & Indefinite Integrals',
             content: `
+<div class="env-block intuition">
+<strong>The Big Picture.</strong> Chapters 3&#8211;7 were about differentiation: given \\(f\\), find \\(f'\\). Now we reverse the question: given \\(f'\\), can we recover \\(f\\)? This "reverse differentiation" is called <em>antidifferentiation</em>, and it is the first step toward integration. We will build a toolkit of antiderivative formulas, learn how initial conditions pin down a unique solution, apply these ideas to motion problems, and glimpse the broader world of differential equations.
+</div>
+
 <h2>8.1 Antiderivatives & Indefinite Integrals</h2>
+
+<p>We begin at the most natural starting point: defining what it means to "undo" a derivative, and understanding why the answer is never a single function but an entire <em>family</em> of functions.</p>
 
 <p>Throughout differential calculus we asked: <em>given a function, what is its derivative?</em> We now reverse the question entirely. Given a function \\(f\\), can we find a function \\(F\\) whose derivative is \\(f\\)?</p>
 
@@ -160,6 +166,8 @@ we mean \\(F'(x) = f(x)\\), and \\(C\\) is an arbitrary real constant.
             content: `
 <h2>8.2 Basic Integration Formulas</h2>
 
+<p>Now that we know <em>what</em> an antiderivative is (Section 8.1), we need a systematic way to <em>find</em> them. The key insight is that every differentiation formula you already know can be read in reverse. In this section we build a reference table of basic antiderivatives, covering power functions, trigonometric functions, exponentials, and their linear combinations.</p>
+
 <p>Every differentiation rule gives rise to a corresponding integration formula. We simply "read the derivative table backwards." Here we catalog the most important basic antiderivatives.</p>
 
 <h3>The Power Rule for Integration</h3>
@@ -240,6 +248,8 @@ we mean \\(F'(x) = f(x)\\), and \\(C\\) is an arbitrary real constant.
 <div class="env-block remark">
 <strong>Remark 8.2.9 (No Product or Chain Rule for Integration).</strong> Unlike differentiation, integration does <em>not</em> have a direct "product rule" or "chain rule." Techniques for handling products and compositions (substitution, integration by parts) will be developed in Chapter 11.
 </div>
+
+<p>With these formulas in hand, we can antidifferentiate a wide class of functions. But our answers always contain an arbitrary constant \\(C\\). In the next section, we will see how additional information (an <em>initial condition</em>) pins down a unique solution.</p>
 
 <h3>Table of Basic Antiderivatives</h3>
 
@@ -357,6 +367,8 @@ a^x & \\frac{a^x}{\\ln a} + C \\\\
             title: 'Initial Value Problems',
             content: `
 <h2>8.3 Initial Value Problems</h2>
+
+<p>Sections 8.1 and 8.2 gave us the <em>general</em> antiderivative, a family of functions differing by a constant. In practice, however, we usually want a single, specific function. This section shows how an <strong>initial condition</strong> selects exactly one member of the family, turning an antidifferentiation problem into an <em>initial value problem</em> (IVP). Mastering IVPs is essential: every motion problem in the next section, and every differential equation afterward, reduces to this pattern.</p>
 
 <p>An indefinite integral gives us a <em>family</em> of functions (differing by a constant \\(C\\)). In applications, we often have additional information that pins down the specific member of the family. This is the idea behind an <strong>initial value problem</strong>.</p>
 
@@ -507,6 +519,8 @@ Solution: \\(F(x) = \\sin x + 3\\).
             content: `
 <h2>8.4 Motion Problems</h2>
 
+<p>We have built the abstract machinery of antiderivatives (Section 8.1), collected basic formulas (Section 8.2), and learned how initial conditions select a unique solution (Section 8.3). Now we put it all to work on the single most important application: <strong>motion along a line</strong>. If you studied derivatives of position in Chapter 4 (rates of change), you already know how to go from position to velocity to acceleration. Here we travel the chain in the opposite direction, using antidifferentiation to recover velocity from acceleration and position from velocity.</p>
+
 <p>The most natural application of antiderivatives is in <strong>kinematics</strong> (the study of motion). The key relationships between position, velocity, and acceleration are:</p>
 
 \\[
@@ -564,6 +578,8 @@ The object hits the ground when \\(s(t) = 0\\): \\(-4.9t^2 + 100 = 0 \\implies t
 <div class="env-block remark">
 <strong>Remark 8.4.5 (From Acceleration to Position: Two Integrations).</strong> Going from acceleration to position requires <em>two</em> integrations, hence <em>two</em> initial conditions (initial velocity and initial position). This is precisely the second-order IVP structure we saw in Example 8.3.5.
 </div>
+
+<p>Motion problems illustrate how antiderivatives solve concrete physical questions. But the pattern of "given a derivative, find the original function" extends far beyond kinematics. The next section gives a brief preview of <strong>differential equations</strong>, where the derivative relationship can depend on the unknown function itself.</p>
 `,
             visualizations: [
                 {
@@ -672,6 +688,8 @@ The object hits the ground when \\(s(t) = 0\\): \\(-4.9t^2 + 100 = 0 \\implies t
             content: `
 <h2>8.5 Differential Equations Preview</h2>
 
+<p>Every problem in this chapter so far has had the form \\(F'(x) = f(x)\\), where \\(f\\) is a known function of \\(x\\) alone. In many real-world models, however, the rate of change depends not just on the independent variable but on the unknown function itself (for example, "a population grows at a rate proportional to its current size"). This leads to <strong>differential equations</strong>, a vast generalization of antidifferentiation. Here we introduce the basic vocabulary and solve the simplest class, <em>separable equations</em>, which require only the antiderivative skills we have already developed.</p>
+
 <p>Finding antiderivatives is actually a special case of a much broader problem: solving <strong>differential equations</strong>. A differential equation is any equation involving an unknown function and its derivatives.</p>
 
 <div class="env-block definition">
@@ -741,6 +759,10 @@ Apply \\(y(3) = 4\\): \\(9 + 16 = 2C\\), so \\(2C = 25\\). The solution is \\(x^
 
 <div class="env-block remark">
 <strong>Remark 8.5.8 (Growth and Decay).</strong> The separable ODE \\(\\frac{dy}{dt} = ky\\) (where \\(k\\) is a constant) models exponential growth (\\(k > 0\\)) and decay (\\(k < 0\\)). Its solution is \\(y = y_0 e^{kt}\\). This single equation describes radioactive decay, population growth, compound interest, Newton's law of cooling, and many other natural phenomena.
+</div>
+
+<div class="env-block intuition">
+<strong>Looking Ahead.</strong> Antiderivatives let us reverse differentiation: given a rate of change, we recover the original quantity. But integration has a completely independent <em>geometric</em> motivation: computing areas under curves. Chapter 9 introduces the <strong>definite integral</strong> from this area perspective using Riemann sums, and the <strong>Fundamental Theorem of Calculus</strong> will reveal that these two ideas, antidifferentiation and area, are secretly the same.
 </div>
 `,
             visualizations: [

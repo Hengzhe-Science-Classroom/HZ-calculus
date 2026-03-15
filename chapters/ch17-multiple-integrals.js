@@ -12,6 +12,15 @@ window.CHAPTERS.push({
             content: `
 <h2>1 &middot; Double Integrals over Rectangles</h2>
 
+<div class="env-block intuition">
+<div class="env-label">The Big Picture</div>
+Single integrals compute areas under curves. Now we generalize: double integrals compute volumes under surfaces, and triple integrals compute "hypervolumes." The idea is the same &mdash; chop, approximate, sum, take a limit &mdash; but now we slice in multiple directions. In Chapter 16 we used partial derivatives to find extrema of multivariable functions. Here we turn to the other half of calculus &mdash; integration &mdash; and ask: how do we accumulate a quantity that varies over a two- or three-dimensional region?
+</div>
+
+<p>
+This chapter builds from simple to sophisticated: we start with double integrals over rectangles (where Fubini's theorem reduces everything to iterated single integrals), then handle general regions, learn to change integration order, exploit polar coordinates for circular symmetry, and finally extend to triple integrals with cylindrical and spherical coordinates.
+</p>
+
 <p>
 In single-variable calculus we integrate a function \\(f(x)\\) over an interval \\([a,b]\\) to obtain the
 signed area under its graph. The natural extension to two variables is the <strong>double integral</strong>
@@ -190,6 +199,11 @@ measure zero). If \\(f\\) is not well-behaved, the two iterated integrals can gi
             title: 'Double Integrals over General Regions',
             content: `
 <h2>2 &middot; Double Integrals over General Regions</h2>
+
+<div class="env-block intuition">
+<div class="env-label">From Rectangles to Curves</div>
+Fubini's theorem on rectangles is clean, but real problems rarely involve perfectly rectangular domains. A lake, a wing cross-section, or the region between two curves all have curved boundaries. The key insight is that we can still iterate, but now the <em>limits of integration become functions</em> rather than constants. This section develops the machinery for handling such regions.
+</div>
 
 <p>
 Most regions of integration are not rectangles. A general bounded region \\(D\\) in the plane can often
@@ -401,6 +415,11 @@ Compute the area of the region bounded by \\(x = y^2\\) and \\(x = 4\\).
             content: `
 <h2>3 &middot; Changing Order of Integration</h2>
 
+<div class="env-block intuition">
+<div class="env-label">Why Order Matters</div>
+Section 2 showed that the same double integral can be set up as either a Type I or Type II iterated integral. But sometimes one order leads to an integrand with no elementary antiderivative, while the reversed order yields an easy computation. Recognizing <em>when</em> and <em>how</em> to reverse the order of integration is one of the most practically important skills in multivariable calculus. The key is always geometric: sketch the region, then re-describe it from the other perspective.
+</div>
+
 <p>
 Sometimes an iterated integral is much easier (or even only possible) to evaluate when the order
 of integration is reversed. The strategy is always the same:
@@ -561,6 +580,11 @@ Equivalently, \\(y\\) ranges from \\(0\\) to \\(2\\) (since \\(\\sqrt{4}=2\\)), 
             title: 'Double Integrals in Polar Coordinates',
             content: `
 <h2>4 &middot; Double Integrals in Polar Coordinates</h2>
+
+<div class="env-block intuition">
+<div class="env-label">Matching Coordinates to Geometry</div>
+Sections 1 through 3 worked entirely in Cartesian coordinates, where the area element \\(dA = dx\\,dy\\) represents a small rectangle. But for a disk, an annulus, or a cardioid, rectangular slicing creates unnecessarily complicated limits. Polar coordinates \\((r,\\theta)\\) align naturally with circular geometry. The trade-off: the area element picks up an extra factor of \\(r\\), reflecting the fact that "wedge-shaped" polar sub-regions grow wider as you move away from the origin. This is our first encounter with a <em>change of variables</em> in multiple integrals, a theme that will recur with cylindrical and spherical coordinates in the next section.
+</div>
 
 <p>
 When the region of integration has circular symmetry, or when the integrand involves
@@ -842,6 +866,11 @@ Since \\(r \\ge 0\\), we have \\(|J| = r\\), giving the area element \\(dA = r\\
             content: `
 <h2>5 &middot; Triple Integrals</h2>
 
+<div class="env-block intuition">
+<div class="env-label">One More Dimension</div>
+Double integrals sum over flat regions in the plane. Triple integrals do the same over solid regions in space. The conceptual leap is modest (add one more integral sign, one more limit), but the practical payoff is enormous: triple integrals let us compute volumes, masses, centers of mass, and moments of inertia for three-dimensional objects. We also gain two powerful new coordinate systems (cylindrical and spherical) that exploit the symmetry of common solids such as cylinders, cones, and spheres.
+</div>
+
 <p>
 Extending double integrals one dimension further, the <strong>triple integral</strong>
 \\(\\iiint_E f(x,y,z)\\,dV\\) integrates a function over a solid region \\(E\\) in three-dimensional space.
@@ -912,6 +941,11 @@ Find the volume of a sphere of radius \\(R\\).
 <li><strong>Cylindrical</strong> \\((r,\\theta,z)\\): Use when the region is symmetric about the \\(z\\)-axis (cylinders, cones).</li>
 <li><strong>Spherical</strong> \\((\\rho,\\phi,\\theta)\\): Use for spheres, hemispheres, and cones centered at the origin.</li>
 </ul>
+</div>
+
+<div class="env-block intuition">
+<div class="env-label">Looking Ahead</div>
+Multiple integrals handle scalar-valued functions: given a number \\(f(x,y,z)\\) at each point, we accumulate it over a region. But what about integrating <em>vector fields</em> along curves or over surfaces? This is the domain of <strong>vector calculus</strong> (Chapter 18), where derivatives and integrals interact in beautiful ways through Green's, Stokes', and the Divergence theorems. Those results unify everything we have built so far, connecting line integrals, surface integrals, and the multiple integrals of this chapter into a single coherent framework.
 </div>
             `,
             visualizations: [

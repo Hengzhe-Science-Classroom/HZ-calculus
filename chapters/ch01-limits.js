@@ -13,7 +13,15 @@ window.CHAPTERS.push({
             content: `
 <h2>1.1 Intuitive Notion of Limits</h2>
 
+<div class="env-block intuition">
+<strong>Why Limits?</strong> In Chapter 0 you learned to build and transform functions: polynomials, trigonometric functions, exponentials, logarithms, and their compositions. You can evaluate any of these at a given input. But calculus asks a deeper question: what happens to \\(f(x)\\) as \\(x\\) <em>approaches</em> a point, especially a point where the function may be undefined or behave strangely? The concept of a limit is the precise tool that answers this question, and every major idea in calculus (derivatives, integrals, series) grows from it.
+</div>
+
+<p>In this section we develop an informal, intuitive understanding of limits using tables, graphs, and one-sided behavior. By the end, you will be able to estimate limits numerically and graphically, and recognize the situations in which a limit fails to exist.</p>
+
 <p>The concept of a <em>limit</em> is the foundation on which all of calculus is built. Derivatives, integrals, and infinite series all rely on limits. Informally, a limit describes the value that a function "approaches" as its input approaches a particular point.</p>
+
+<p>What does it mean, precisely, to say a function "approaches" a value? Before we formalize this, let us start with an intuitive description that captures the core idea.</p>
 
 <div class="env-block definition">
 <strong>Informal Definition.</strong> We write
@@ -55,6 +63,8 @@ Since \\(f(x) = \\frac{(x-1)(x+1)}{x-1} = x + 1\\) for \\(x \\neq 1\\), the valu
 
 <h3>One-Sided Limits</h3>
 
+<p>Sometimes a function behaves differently when approached from the left versus the right. To capture this, we separate the limit into two halves. This distinction will be essential later when we classify discontinuities in Chapter 2.</p>
+
 <div class="env-block definition">
 <strong>Definition 1.1.2 (One-Sided Limits).</strong>
 <ul>
@@ -92,6 +102,8 @@ Then \\(\\lim_{x \\to 0^-} H(x) = 0\\) and \\(\\lim_{x \\to 0^+} H(x) = 1\\). Si
 <div class="env-block example">
 <strong>Example 1.1.5.</strong> The function \\(f(x) = \\sin\\!\\left(\\frac{1}{x}\\right)\\) oscillates infinitely rapidly as \\(x \\to 0\\). The values cycle through \\([-1, 1]\\) without converging, so \\(\\lim_{x \\to 0} \\sin(1/x)\\) does not exist.
 </div>
+
+<p>We now have a working intuition for limits: tables, graphs, and one-sided analysis. But phrases like "gets closer and closer" are vague. How close is close enough? In the next section we replace intuition with the precise \\(\\varepsilon\\text{-}\\delta\\) framework, which transforms "approaching" into a rigorous mathematical statement that can be <em>proved</em>.</p>
 `,
             visualizations: [
                 {
@@ -237,7 +249,11 @@ Then \\(\\lim_{x \\to 0^-} H(x) = 0\\) and \\(\\lim_{x \\to 0^+} H(x) = 1\\). Si
             content: `
 <h2>1.2 The \\(\\varepsilon\\text{-}\\delta\\) Definition</h2>
 
+<p>In this section we make the informal idea of "approaching" completely rigorous. We introduce the \\(\\varepsilon\\text{-}\\delta\\) definition of a limit, learn the standard template for writing \\(\\varepsilon\\text{-}\\delta\\) proofs, and establish that limits, when they exist, are unique.</p>
+
 <p>The informal notion "\\(f(x)\\) gets close to \\(L\\)" must be made precise. The rigorous definition, due to Weierstrass, uses two quantities: \\(\\varepsilon\\) (epsilon) measures how close \\(f(x)\\) must be to \\(L\\), and \\(\\delta\\) measures how close \\(x\\) must be to \\(a\\).</p>
+
+<p>Why do we need this level of rigor? Intuition alone cannot settle subtle questions. For instance, does \\(\\lim_{x \\to 0} x \\sin(1/x)\\) equal \\(0\\), or does the wild oscillation of \\(\\sin(1/x)\\) prevent convergence? The \\(\\varepsilon\\text{-}\\delta\\) framework gives us a definitive way to <em>prove</em> that the limit is indeed \\(0\\), removing all ambiguity.</p>
 
 <div class="env-block definition">
 <strong>Definition 1.2.1 (Limit \u2014 Precise).</strong> Let \\(f\\) be defined on an open interval containing \\(a\\), except possibly at \\(a\\) itself. We say
@@ -307,6 +323,8 @@ if for every \\(\\varepsilon > 0\\), there exists a \\(\\delta > 0\\) such that
 \\]
 a contradiction. \\(\\square\\)
 </div>
+
+<p>The \\(\\varepsilon\\text{-}\\delta\\) definition is powerful but laborious to apply from scratch every time. In the next section we prove a collection of <em>limit laws</em> once and for all using \\(\\varepsilon\\text{-}\\delta\\) arguments, so that from then on we can compute limits algebraically without returning to first principles.</p>
 `,
             visualizations: [
                 {
@@ -443,7 +461,11 @@ a contradiction. \\(\\square\\)
             content: `
 <h2>1.3 Limit Laws</h2>
 
+<p>In this section we establish the algebraic rules that govern limits, including sum, product, and quotient laws. We then apply them to polynomials, rational functions, and indeterminate forms.</p>
+
 <p>Computing limits directly from the \\(\\varepsilon\\text{-}\\delta\\) definition for every function would be impractical. Instead, we establish <em>limit laws</em> that allow us to compute limits algebraically.</p>
+
+<p>The following theorem answers the question: if we already know the limits of two simpler functions, can we determine the limit of their sum, product, or quotient? The answer is yes, and these rules let us break complicated limit problems into manageable pieces.</p>
 
 <div class="env-block theorem">
 <strong>Theorem 1.3.1 (Limit Laws).</strong> Suppose \\(\\lim_{x \\to a} f(x) = L\\) and \\(\\lim_{x \\to a} g(x) = M\\). Then:
@@ -488,6 +510,8 @@ By the limit laws: \\(\\lim_{x \\to 3} x^2 = 9\\), \\(\\lim_{x \\to 3} 5x = 15\\
 
 <h3>Indeterminate Forms</h3>
 
+<p>The limit laws and direct substitution handle most routine limits. But what happens when substitution produces an expression like \\(0/0\\)? Such expressions are called <em>indeterminate</em> because the limit could be any real number (or fail to exist). The techniques below, including factoring and rationalizing, resolve these ambiguities.</p>
+
 <p>When direct substitution yields \\(\\frac{0}{0}\\), \\(\\frac{\\infty}{\\infty}\\), \\(0 \\cdot \\infty\\), \\(\\infty - \\infty\\), \\(0^0\\), \\(1^\\infty\\), or \\(\\infty^0\\), we say the expression is <em>indeterminate</em>. The limit may exist but requires more work.</p>
 
 <div class="env-block example">
@@ -511,6 +535,8 @@ As \\(x \\to 0\\): \\(\\frac{1}{\\sqrt{4} + 2} = \\frac{1}{4}\\).
 </div>
 
 <div class="viz-placeholder" data-viz="viz-indeterminate"></div>
+
+<p>Limit laws and algebraic tricks handle a wide class of limits, but some functions resist these methods entirely. For example, how do we evaluate \\(\\lim_{x \\to 0} x^2 \\sin(1/x)\\), where the factor \\(\\sin(1/x)\\) oscillates wildly? The next section introduces the <em>Squeeze Theorem</em>, a powerful indirect technique that pins down a limit by trapping the function between two simpler ones.</p>
 `,
             visualizations: [
                 {
@@ -597,7 +623,11 @@ As \\(x \\to 0\\): \\(\\frac{1}{\\sqrt{4} + 2} = \\frac{1}{4}\\).
             content: `
 <h2>1.4 The Squeeze Theorem</h2>
 
+<p>In this section we prove the Squeeze Theorem, use it to establish the fundamental trigonometric limit \\(\\lim_{x \\to 0} \\frac{\\sin x}{x} = 1\\), and apply the technique to several oscillatory limits.</p>
+
 <p>Some limits cannot be computed by algebraic manipulation alone. The <em>Squeeze Theorem</em> (also called the Sandwich Theorem or Pinching Theorem) provides a powerful indirect method.</p>
+
+<p>The key idea is simple: if a function is trapped between two others that converge to the same limit, the trapped function has no choice but to converge there too. This turns bounding inequalities into limit statements.</p>
 
 <div class="env-block theorem">
 <strong>Theorem 1.4.1 (Squeeze Theorem).</strong> Suppose \\(g(x) \\le f(x) \\le h(x)\\) for all \\(x\\) near \\(a\\) (except possibly at \\(a\\)), and
@@ -620,6 +650,8 @@ hence \\(|f(x) - L| < \\varepsilon\\). \\(\\square\\)
 <div class="viz-placeholder" data-viz="viz-squeeze"></div>
 
 <h3>The Fundamental Trigonometric Limit</h3>
+
+<p>The Squeeze Theorem immediately earns its place by proving the single most important trigonometric limit. This result will be indispensable when we compute the derivative of \\(\\sin x\\) in later chapters.</p>
 
 <div class="env-block theorem">
 <strong>Theorem 1.4.2.</strong>
@@ -670,6 +702,8 @@ Using the identity \\(1 - \\cos x = 2\\sin^2(x/2)\\):
 
 Since \\(-1 \\le \\sin(1/x) \\le 1\\), we have \\(-x^2 \\le x^2 \\sin(1/x) \\le x^2\\). Both \\(-x^2\\) and \\(x^2\\) tend to \\(0\\), so by the Squeeze Theorem the limit is \\(0\\).
 </div>
+
+<p>So far, all our limits have involved \\(x\\) approaching a finite point \\(a\\). But many applications require understanding long-run behavior: what happens to \\(f(x)\\) as \\(x\\) grows without bound? The final section extends our limit framework to \\(x \\to \\pm\\infty\\), introducing horizontal and vertical asymptotes.</p>
 `,
             visualizations: [
                 {
@@ -850,7 +884,11 @@ Since \\(-1 \\le \\sin(1/x) \\le 1\\), we have \\(-x^2 \\le x^2 \\sin(1/x) \\le 
             content: `
 <h2>1.5 Limits at Infinity</h2>
 
+<p>In this section we define limits as \\(x \\to \\pm\\infty\\), characterize horizontal and vertical asymptotes, and establish a hierarchy of growth rates among polynomials, exponentials, and logarithms.</p>
+
 <p>We now study the behavior of functions as \\(x\\) grows without bound. This leads to the concept of <em>horizontal asymptotes</em> and provides a systematic method for comparing growth rates.</p>
+
+<p>How do we formalize "\\(f(x)\\) settles down to \\(L\\) for large \\(x\\)"? The idea mirrors the \\(\\varepsilon\\text{-}\\delta\\) definition, but instead of requiring \\(x\\) to be within \\(\\delta\\) of a finite point, we require \\(x\\) to exceed some threshold \\(M\\).</p>
 
 <div class="env-block definition">
 <strong>Definition 1.5.1.</strong> We write \\(\\displaystyle\\lim_{x \\to \\infty} f(x) = L\\) if for every \\(\\varepsilon > 0\\), there exists \\(M > 0\\) such that
@@ -940,6 +978,10 @@ This says exponential growth dominates polynomial growth. A proof by induction u
 \\ln x \\ll x^a \\ll b^x \\ll x! \\ll x^x
 \\]
 for any \\(a > 0\\) and \\(b > 1\\). Each function on the right eventually dwarfs all those on the left.
+</div>
+
+<div class="env-block intuition">
+<strong>Looking Ahead: From Limits to Continuity.</strong> Now that we understand limits, from intuitive estimates through rigorous \\(\\varepsilon\\text{-}\\delta\\) proofs, algebraic limit laws, the Squeeze Theorem, and behavior at infinity, a natural next question arises: when does \\(\\lim_{x \\to a} f(x)\\) actually equal \\(f(a)\\)? Functions where this equality holds everywhere are called <em>continuous</em>, and they are the subject of Chapter 2. Continuity gives us the Intermediate Value Theorem (guaranteeing that a continuous function takes every value between any two of its outputs) and the Extreme Value Theorem (guaranteeing that a continuous function on a closed interval attains its maximum and minimum). Both results depend on the limit machinery we have built here.
 </div>
 `,
             visualizations: [

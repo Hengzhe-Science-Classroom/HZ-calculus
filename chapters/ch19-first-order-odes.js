@@ -10,6 +10,15 @@ window.CHAPTERS.push({
             id: 'direction-fields-euler',
             title: 'Direction Fields & Euler\'s Method',
             content: `
+<div class="env-block intuition">
+<div class="env-label">Intuition &mdash; From Computing Derivatives to Finding Functions</div>
+Throughout this course, we have computed derivatives and integrals of known functions. Now we face a new challenge: given an equation involving an unknown function and its derivative (for example, \\(y' = ky\\)), find the function itself. These are <strong>ordinary differential equations</strong> (ODEs), and they model everything from population growth to radioactive decay. This chapter introduces the core techniques for solving first-order ODEs, completing your calculus toolkit with the ability to recover unknown functions from information about their rates of change.
+</div>
+
+<p>
+We begin with qualitative and numerical approaches: direction fields let us <em>see</em> solutions before computing them, and Euler's method provides a simple algorithm for approximation. Then we move to exact analytical methods (separable, linear, and exact equations) before closing with real-world applications that bring together ideas from across the entire course.
+</p>
+
 <h2>1 &middot; Direction Fields &amp; Euler&rsquo;s Method</h2>
 
 <div class="env-block definition">
@@ -247,6 +256,10 @@ The exact solution is \\(y = 2e^x - x - 1\\), giving \\(y(1.5) \\approx 5.96\\).
             content: `
 <h2>2 &middot; Separable Equations</h2>
 
+<p>
+Direction fields and Euler's method give us qualitative and numerical tools. Now we turn to <strong>analytical methods</strong> that produce exact formulas. The simplest class of solvable ODEs are those where the variables can be pulled apart onto opposite sides of the equation. These are the <em>separable equations</em>, and solving them reduces to performing two separate integrations, one skill you have practiced extensively in earlier chapters.
+</p>
+
 <div class="env-block definition">
 <div class="env-label">Definition &mdash; Separable Equation</div>
 A first-order ODE is called <strong>separable</strong> if it can be written in the form
@@ -402,6 +415,10 @@ an \\(x\\)-driven factor times a \\(y\\)-driven factor. Integration of each fact
             title: 'Linear First-Order ODEs',
             content: `
 <h2>3 &middot; Linear First-Order ODEs</h2>
+
+<p>
+Not every ODE is separable. When the unknown function \\(y\\) appears linearly but is mixed with functions of \\(x\\) in a way that cannot be factored, we need a different strategy. The <strong>integrating factor method</strong> handles all linear first-order ODEs, exploiting the product rule in reverse. This technique connects directly to the exponential function ideas from earlier in the course: the integrating factor is itself an exponential built from the coefficient function.
+</p>
 
 <div class="env-block definition">
 <div class="env-label">Definition &mdash; Linear First-Order ODE</div>
@@ -567,6 +584,10 @@ the <strong>homogeneous solution</strong> \\(Ce^{-\\int P\\,dx}\\).
             title: 'Exact Equations & Integrating Factors',
             content: `
 <h2>4 &middot; Exact Equations &amp; Integrating Factors</h2>
+
+<p>
+Separable and linear equations each exploit specific structural features. <strong>Exact equations</strong> reveal a deeper geometric principle: the ODE is secretly the level-curve equation of a potential function \\(F(x,y)\\). If you studied partial derivatives and gradient fields in Chapter 18 on vector calculus, you will recognize this immediately. The exactness test \\(M_y = N_x\\) is nothing other than the equality of mixed partials, and solving the equation amounts to reconstructing \\(F\\) from its partial derivatives.
+</p>
 
 <div class="env-block definition">
 <div class="env-label">Definition &mdash; Exact Equation</div>
@@ -807,6 +828,10 @@ Solve: \\(F = xy^2 + \\frac{y^3}{3} = C\\).
 <h2>5 &middot; Applications</h2>
 
 <p>
+With the analytical toolkit now complete (separable, linear, and exact methods), we turn to the reason differential equations matter: they model the real world. Every application in this section uses techniques from the previous sections, and many connect back to ideas from much earlier in the course. Exponential growth is the natural consequence of a constant relative rate of change. Newton's law of cooling is a linear first-order ODE. Mixing problems combine integration with modeling. The logistic equation ties together separable equations and partial fractions.
+</p>
+
+<p>
 First-order ODEs model a vast range of real-world phenomena. Here we explore the most
 classical applications.
 </p>
@@ -900,6 +925,15 @@ For small \\(P \\ll K\\), the factor \\((1 - P/K) \\approx 1\\) and growth is ne
 If \\(f(x,y)\\) and \\(\\partial f/\\partial y\\) are continuous on a rectangle containing \\((x_0, y_0)\\), then the IVP
 \\(y' = f(x,y)\\), \\(y(x_0) = y_0\\) has a <strong>unique</strong> solution on some interval around \\(x_0\\).
 This guarantees that solution curves do not cross (in the region of continuity).
+</div>
+
+<div class="env-block intuition">
+<div class="env-label">The Journey of Calculus</div>
+From functions and limits, through derivatives and integrals, to sequences and series, multivariable calculus, vector calculus, and now differential equations, you have built a complete toolkit for analyzing continuous change. Limits taught you to make the imprecise precise. Derivatives revealed instantaneous rates of change. Integrals let you accumulate quantities and recover functions from their rates. Series showed that complicated functions can be built from simple pieces. Multivariable and vector calculus extended these ideas to higher dimensions. And now, with differential equations, you can model and solve problems where the unknown is a function constrained by its own rate of change.
+
+<br><br>
+
+These ideas form the foundation for virtually all of applied mathematics, physics, and engineering. Whether you continue to real analysis, probability theory, differential geometry, or applied modeling, the concepts and techniques from this course will be with you at every step. Congratulations on completing the journey.
 </div>
 `,
             visualizations: [

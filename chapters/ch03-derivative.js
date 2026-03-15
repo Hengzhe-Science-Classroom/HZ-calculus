@@ -11,7 +11,16 @@ window.CHAPTERS.push({
             id: 'tangent-line-problem',
             title: 'The Tangent Line Problem',
             content: `
+<div class="env-block env-intuition">
+<div class="env-header">From Continuity to the Derivative</div>
+<div class="env-body">
+<p>In Chapter 2, we established what it means for a function to be continuous: no breaks, no jumps, no holes. Continuity guarantees that small changes in the input produce small changes in the output. But continuity alone says nothing about <em>how fast</em> the output is changing. Two continuous functions can behave very differently, one climbing steeply while the other barely moves. The derivative answers this deeper question: at any given instant, what is the rate of change?</p>
+</div>
+</div>
+
 <h2>The Tangent Line Problem</h2>
+
+<p>Our goal in this section is to give a precise meaning to "the slope of a curve at a point." We will do this by approximating the curve with secant lines and then taking a limit. This idea, simple as it sounds, is the foundation of differential calculus.</p>
 
 <div class="env-block env-intuition">
 <div class="env-header">Intuition</div>
@@ -21,6 +30,8 @@ window.CHAPTERS.push({
 </div>
 
 <p>Consider a function \\(f(x)\\) and a point \\(P = (a, f(a))\\) on its graph. If we pick a nearby point \\(Q = (a+h, f(a+h))\\), the line through \\(P\\) and \\(Q\\) is called a <strong>secant line</strong>.</p>
+
+<p>The slope of a secant line is easy to compute, it is just "rise over run." The key insight is that by letting the second point slide closer and closer to the first, the secant slope converges to a single value: the slope of the tangent line.</p>
 
 <div class="env-block env-definition">
 <div class="env-header">Definition 3.1 — Secant Line</div>
@@ -35,6 +46,8 @@ window.CHAPTERS.push({
 
 <div class="viz-placeholder" data-viz="secant-to-tangent"></div>
 
+<p>The visualization above shows the secant line converging to a limiting position. We now capture this limiting position with a formal definition. The tangent line at a point is defined as the line whose slope is the limit of secant slopes.</p>
+
 <div class="env-block env-definition">
 <div class="env-header">Definition 3.2 — Tangent Line</div>
 <div class="env-body">
@@ -43,6 +56,8 @@ window.CHAPTERS.push({
 <p>provided this limit exists.</p>
 </div>
 </div>
+
+<p>Let us put this definition to work. The following example shows that computing a tangent slope amounts to setting up a difference quotient, simplifying, and evaluating a limit.</p>
 
 <div class="env-block env-example">
 <div class="env-header">Example 3.1</div>
@@ -74,6 +89,8 @@ window.CHAPTERS.push({
 <p>So \\(m_{\\tan} = \\lim_{h\\to 0}(12 + 6h + h^2) = 12\\). The tangent line is \\(y - 8 = 12(x - 2)\\), i.e., \\(y = 12x - 16\\).</p>
 </div>
 </div>
+
+<p>So far, we have computed the tangent slope at one specific point at a time. In the next section, we formalize this process into a general definition: the <strong>derivative</strong>.</p>
 `,
             visualizations: [
                 {
@@ -213,7 +230,11 @@ window.CHAPTERS.push({
             content: `
 <h2>Definition of the Derivative</h2>
 
+<p>In this section we give a formal name to the tangent-slope limit from Section 1. We define the <strong>derivative at a point</strong>, explore its multiple interpretations, and see examples where the derivative fails to exist.</p>
+
 <p>In the previous section we found the slope of the tangent line at a <em>specific</em> point. Now we formalize this as a general definition.</p>
+
+<p>The natural question is: can we package the limit of the difference quotient into a single, reusable concept? The answer is the derivative. Rather than repeating the limit computation from scratch each time, we define one object that encapsulates the tangent slope at any point.</p>
 
 <div class="env-block env-definition">
 <div class="env-header">Definition 3.3 — The Derivative at a Point</div>
@@ -245,7 +266,11 @@ window.CHAPTERS.push({
 </div>
 </div>
 
+<p>The interactive visualization below lets you explore all three interpretations at once. Try different functions and watch how the secant line converges to the tangent as \\(h\\) shrinks.</p>
+
 <div class="viz-placeholder" data-viz="derivative-at-point"></div>
+
+<p>Let us practice computing derivatives from the definition. The algebraic strategy is always the same: form the difference quotient, simplify until you can cancel the \\(h\\) in the denominator, then take the limit.</p>
 
 <div class="env-block env-example">
 <div class="env-header">Example 3.3</div>
@@ -267,6 +292,8 @@ window.CHAPTERS.push({
 </div>
 </div>
 
+<p>This example reveals something important: the existence of the derivative is a stronger condition than it might first appear. Not every continuous function is differentiable.</p>
+
 <div class="env-block env-warning">
 <div class="env-header">Warning</div>
 <div class="env-body">
@@ -275,6 +302,8 @@ window.CHAPTERS.push({
 </div>
 
 <div class="viz-placeholder" data-viz="derivative-does-not-exist"></div>
+
+<p>Up to now, we have treated the derivative as a number attached to a single point. But if we compute \\(f'(a)\\) for <em>every</em> value of \\(a\\) in the domain, we obtain a new function. The next section makes this idea precise.</p>
 `,
             visualizations: [
                 {
@@ -428,7 +457,11 @@ window.CHAPTERS.push({
             content: `
 <h2>The Derivative as a Function</h2>
 
+<p>In this section, we shift perspective: instead of computing the derivative at one point, we define the derivative as a function in its own right. We also introduce the various notations used across mathematics, physics, and engineering.</p>
+
 <p>Instead of computing the derivative at a single point \\(x = a\\), we can let \\(a\\) vary and define a new function.</p>
+
+<p>The question driving this section is: what if we let the base point \\(a\\) roam freely? For each \\(x\\) in the domain, the limit of the difference quotient (when it exists) produces a value \\(f'(x)\\). Collecting all these values gives us a new function, the derivative function.</p>
 
 <div class="env-block env-definition">
 <div class="env-header">Definition 3.4 — The Derivative Function</div>
@@ -476,6 +509,8 @@ window.CHAPTERS.push({
 
 <div class="viz-placeholder" data-viz="derivative-function-graph"></div>
 
+<p>A pattern emerges from these examples. Each time we differentiate \\(x^n\\), the exponent drops by one and multiplies the coefficient. This observation leads to one of the most useful formulas in calculus.</p>
+
 <div class="env-block env-theorem">
 <div class="env-header">Theorem 3.1 — Power Rule (Preview)</div>
 <div class="env-body">
@@ -498,6 +533,8 @@ window.CHAPTERS.push({
 </div>
 
 <div class="viz-placeholder" data-viz="graph-f-and-fprime"></div>
+
+<p>We can now compute derivatives and view them as functions. But we noticed earlier that some functions, like \\(|x|\\), are continuous yet not differentiable. In the next section, we investigate the precise relationship between differentiability and continuity.</p>
 `,
             visualizations: [
                 {
@@ -635,7 +672,11 @@ window.CHAPTERS.push({
             content: `
 <h2>Differentiability and Continuity</h2>
 
+<p>This section answers a fundamental structural question: how do differentiability and continuity relate to each other? We prove that differentiability is a strictly stronger condition, and we catalog the classic ways a continuous function can fail to be differentiable.</p>
+
 <p>We have seen that not every function is differentiable everywhere. What is the relationship between differentiability and continuity?</p>
+
+<p>Recall from Chapter 2 that continuity means "no breaks." Differentiability means "has a well-defined tangent." Intuitively, a smooth curve certainly has no breaks, so differentiability should imply continuity. The following theorem confirms this.</p>
 
 <div class="env-block env-theorem">
 <div class="env-header">Theorem 3.2 — Differentiable Implies Continuous</div>
@@ -655,6 +696,8 @@ window.CHAPTERS.push({
 <p>We used the product rule for limits. The first factor equals \\(f'(a)\\) (which exists by hypothesis), and the second factor tends to 0. \\(\\square\\)</p>
 </div>
 </div>
+
+<p>The natural follow-up question is: does the converse hold? If a function is continuous, must it be differentiable? The answer is a resounding no, and the counterexamples are both instructive and visually striking.</p>
 
 <div class="env-block env-warning">
 <div class="env-header">The Converse is False!</div>
@@ -691,6 +734,8 @@ window.CHAPTERS.push({
 </div>
 
 <div class="viz-placeholder" data-viz="diff-cont-venn"></div>
+
+<p>Now that we understand when derivatives exist and how they relate to continuity, we are ready to go further. If the derivative \\(f'\\) is itself a function, can we differentiate it again? The next section explores higher-order derivatives and their physical and geometric meaning.</p>
 `,
             visualizations: [
                 {
@@ -850,7 +895,11 @@ window.CHAPTERS.push({
             content: `
 <h2>Higher-Order Derivatives</h2>
 
+<p>In this section, we define higher-order derivatives and explore their meaning. The second derivative reveals acceleration in physics and concavity in geometry; higher derivatives continue to unlock deeper structure.</p>
+
 <p>Since the derivative \\(f'\\) is itself a function, we can take <em>its</em> derivative to get the <strong>second derivative</strong>, and continue further.</p>
+
+<p>Why would we want to differentiate more than once? The first derivative tells us how fast a quantity is changing, but it says nothing about whether that rate of change is itself speeding up or slowing down. The second derivative answers exactly this question.</p>
 
 <div class="env-block env-definition">
 <div class="env-header">Definition 3.5 — Higher-Order Derivatives</div>
@@ -926,12 +975,21 @@ window.CHAPTERS.push({
 
 <div class="viz-placeholder" data-viz="concavity-second-derivative"></div>
 
+<p>To close this section, we record a general formula for the higher derivatives of power functions. This pattern will be useful throughout the course.</p>
+
 <div class="env-block env-theorem">
 <div class="env-header">Theorem 3.3 — Higher Derivatives of \\(x^n\\)</div>
 <div class="env-body">
 <p>For \\(f(x) = x^n\\) (\\(n\\) a positive integer):</p>
 \\[f^{(k)}(x) = \\frac{n!}{(n-k)!} x^{n-k} \\quad \\text{for } k \\leq n,\\]
 \\[f^{(k)}(x) = 0 \\quad \\text{for } k > n.\\]
+</div>
+</div>
+
+<div class="env-block env-intuition">
+<div class="env-header">Looking Ahead: Differentiation Rules</div>
+<div class="env-body">
+<p>In this chapter, every derivative was computed directly from the limit definition. While this approach is rigorous and reveals exactly what the derivative means, it quickly becomes tedious for more complicated functions. How would you differentiate \\(f(x) = x^5 \\sin(x) / (1 + x^2)\\) from the definition alone? In Chapter 4, we develop a toolkit of differentiation rules (the power rule, product rule, quotient rule, and chain rule) that let us differentiate virtually any function built from elementary pieces, without returning to limits each time.</p>
 </div>
 </div>
 `,
